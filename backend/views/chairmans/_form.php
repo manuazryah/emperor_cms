@@ -26,7 +26,7 @@ use dosamigos\ckeditor\CKEditor;
                 if (!empty($model->image)) {
                     ?>
 
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/chairman/small.<?= $model->image; ?>" width="100" height="75"/>
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/chairman/<?= $model->id; ?>/small.<?= $model->image; ?>" width="100" height="75"/>
                     <?php
                 }
             }

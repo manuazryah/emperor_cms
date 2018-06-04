@@ -4,6 +4,7 @@
 use common\components\MenuHeaderWidget;
 use common\models\Slider;
 use common\models\Chairmans;
+use common\models\Sectors;
 ?>
 <div class="kc_clfw"></div>
 <section class="kc-elm kc-css-217831 kc_row">
@@ -126,19 +127,19 @@ use common\models\Chairmans;
             <div class="kc-elm kc-css-102672 kc_col-sm-12 kc_column kc_col-sm-12">
                 <div class="kc-col-container">
                     <!--Call To Action-->
-                    <section class="call-to-action" style="background-image:url('images/1.jpg')">
+                    <section class="call-to-action" style="background-image:url('../images/1.jpg')">
                         <div class="auto-container">
                             <div class="row clearfix">
                                 <!--Column-->
-                                <?php $chairmans = Chairmans::findOne(1);?>
+                                <?php $chairmans = Chairmans::findOne(1); ?>
                                 <div class="column col-md-8 col-sm-12 col-xs-12 pr100">
-                                    <h2 class="text-left"><?= $chairmans->title?></h2>
+                                    <h2 class="text-left"><?= $chairmans->title ?></h2>
                                     <div class="text text-justify">
-                                        <p><?= $chairmans->short_content?> </p>
+                                        <p><?= $chairmans->short_content ?> </p>
                                     </div>
                                 </div>
                                 <div class="column col-md-4 col-sm-12 col-xs-12 pr100 mt25">
-                                    <a style="float: left;" href="<?= yii::$app->homeUrl.'site/chairmans-message'?>" class="theme-btn btn-style-three">Chairman's Message</a>
+                                    <a style="float: left;" href="<?= yii::$app->homeUrl . 'site/chairmans-message' ?>" class="theme-btn btn-style-three">Chairman's Message</a>
                                 </div>
                                 <!--Btn Column-->
                             </div>
@@ -165,115 +166,30 @@ use common\models\Chairmans;
                             </div>
                             <div class="row clearfix">
                                 <!--Services Block-->
-                                <div class="services-block col-md-4 col-sm-6 col-xs-12">
-                                    <div class="inner-box hvr-float">
-                                        <div class="image">
-                                            <img src="<?= Yii::$app->homeUrl; ?>images/services/3.jpg" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="images/services/3.jpg" />
-                                            <div class="icon-box">
-                                                <span class="icon flaticon-spray-gas-bottle"></span>
+                                <?php
+                                $sectors = Sectors::find()->where(['status' => 1])->all();
+                                foreach ($sectors as $sector) {
+                                    ?>
+                                    <div class="services-block col-md-4 col-sm-6 col-xs-12">
+                                        <div class="inner-box hvr-float">
+                                            <div class="image">
+                                                <img src="<?= Yii::$app->homeUrl.'uploads/sectors/'.$sector->id.'/small/image.'.$sector->small_image; ?>" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="<?= Yii::$app->homeUrl.'uploads/sectors/'.$sector->id.'/small/image.'.$sector->small_image; ?>" />
+                                                <div class="icon-box">
+                                                    <span class="icon flaticon-spray-gas-bottle"></span>
+                                                </div>
+                                                <div class="overlay-box clearfix">
+                                                    <div class="text">"<?= substr($sector->main_content, 0, 80) ?>..."</div>
+                                                    <a href="<?= Yii::$app->homeUrl.'site/sectors?sector='.$sector->canonical_name.'#'.$sector->canonical_name; ?>" class="read-more">Read More</a>
+                                                </div>
                                             </div>
-                                            <div class="overlay-box clearfix">
-                                                <div class="text">"EEC will provide consultancy services and support at all stages from concept to commissioning, driven by environmental...</div>
-                                                <a href="Oil-Gas-Engineering.php#Oil-Gas-Engineering" class="read-more">Read More</a>
+                                            <div class="lower-box">
+                                                <h3><a href="<?= Yii::$app->homeUrl.'site/sectors?sector='.$sector->canonical_name.'#'.$sector->canonical_name; ?>"><?= $sector->name ?></a></h3>
                                             </div>
-                                        </div>
-                                        <div class="lower-box">
-                                            <h3><a href="Oil-Gas-Engineering.php#Oil-Gas-Engineering">Oil & Gas Engineering</a></h3>
                                         </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <!--Services Block-->
-                                <div class="services-block col-md-4 col-sm-6 col-xs-12">
-                                    <div class="inner-box hvr-float">
-                                        <div class="image">
-                                            <img src="<?= Yii::$app->homeUrl; ?>images/services/1.jpg" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="images/services/1.jpg" />
-                                            <div class="icon-box">
-                                                <span class="icon flaticon-chemistry-class-flask-with-liquid-for-experimentation"></span>
-                                            </div>
-                                            <div class="overlay-box clearfix">
-                                                <div class="text">"With our unique expertise, we are equipped to assess and advise on de-bottlenecking, revamping, and expansion of ‘aged’ Petroleum Refining...</div>
-                                                <a href="Petroleum-Engineering.php#Petroleum-Engineering" class="read-more">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="lower-box">
-                                            <h3><a href="Petroleum-Engineering.php#Petroleum-Engineering">Petroleum & Chemicals Engineering</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Services Block-->
-                                <!--Services Block-->
-                                <div class="services-block col-md-4 col-sm-6 col-xs-12">
-                                    <div class="inner-box hvr-float">
-                                        <div class="image">
-                                            <img src="<?= Yii::$app->homeUrl; ?>images/services/RPS.jpg" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="images/services/RPS.jpg" />
-                                            <div class="icon-box">
-                                                <span class="icon flaticon-branch-with-leaves-black-shape"></span>
-                                            </div>
-                                            <div class="overlay-box clearfix">
-                                                <div class="text">"EEC’s expertise in the area of Nuclear Power Plants enables strategic Engineering Consultancy services to be provided...</div>
-                                                <a href="Nuclear-Energy.php#Nuclear-Energy" class="read-more">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="lower-box">
-                                            <h3><a href="Nuclear-Energy.php#Nuclear-Energy">Nuclear Energy</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Services Block-->
-                                <div class="services-block col-md-4 col-sm-6 col-xs-12">
-                                    <div class="inner-box hvr-float">
-                                        <div class="image">
-                                            <img src="<?= Yii::$app->homeUrl; ?>images/services/4.jpg" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="images/services/4.jpg" />
-                                            <div class="icon-box">
-                                                <span class="icon flaticon-flash-1"></span>
-                                            </div>
-                                            <div class="overlay-box clearfix">
-                                                <div class="text">"Applicable to large- and small-scale organizational frameworks, infrastructure can include a variety of systems and structures.. </div>
-                                                <a href="Infrastructure-products.php#Infrastructure-products" class="read-more">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="lower-box">
-                                            <h3><a href="Infrastructure-products.php#Infrastructure-products">Construction & Project Management</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Services Block-->
-
-                                <!--Services Block-->
-                                <div class="services-block col-md-4 col-sm-6 col-xs-12">
-                                    <div class="inner-box hvr-float">
-                                        <div class="image">
-                                            <img src="<?= Yii::$app->homeUrl; ?>images/services/10.jpg" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="images/services/10.jpg" />
-                                            <div class="icon-box">
-                                                <span class="icon flaticon-wrench-tool"></span>
-                                            </div>
-                                            <div class="overlay-box clearfix">
-                                                <div class="text">"A renewable resource is a resource which can be used repeatedly and replaced naturally...</div>
-                                                <a href="RPS.php#RPS" class="read-more">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="lower-box">
-                                            <h3><a href="RPS.php#RPS">Renewable Power Solutions (RPS)</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="services-block col-md-4 col-sm-6 col-xs-12">
-                                    <div class="inner-box hvr-float">
-                                        <div class="image">
-                                            <img src="<?= Yii::$app->homeUrl; ?>images/services/20.jpg" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="images/services/20.jpg" />
-                                            <div class="icon-box">
-                                                <span class="icon flaticon-gears-configuration-tool"></span>
-                                            </div>
-                                            <div class="overlay-box clearfix">
-                                                <div class="text">"EEC has considerable professional expertise in the area of CORPORATE GOVERNANCE and STRATEGIC MANAGEMENT, built over years...</div>
-                                                <a href="Corporate.php#Corporate" class="read-more">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="lower-box">
-                                            <h3><a href="Corporate.php#Corporate">Corporate Governce,Sustainibility and Strategic Management.</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </section>

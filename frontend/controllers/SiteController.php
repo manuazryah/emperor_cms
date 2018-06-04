@@ -8,10 +8,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
+use common\models\Sectors;
 use frontend\models\ContactForm;
 
 /**
@@ -26,15 +23,15 @@ class SiteController extends Controller {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup','chairmans-message'],
+                'only' => ['logout', 'signup', 'chairmans-message'],
                 'rules' => [
                     [
-                        'actions' => ['signup','chairmans-message'],
+                        'actions' => ['signup', 'chairmans-message'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout','chairmans-message'],
+                        'actions' => ['logout', 'chairmans-message'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -78,6 +75,16 @@ class SiteController extends Controller {
     }
 
     /**
+     * Displays Sectors page.
+     *
+     * @return mixed
+     */
+    public function actionSectors($sector) {
+        $sectors = Sectors::find()->where(['status' => 1, 'canonical_name' => $sector])->one();
+        return $this->render('sector', ['sectors' => $sectors]);
+    }
+
+    /**
      * Displays contact page.
      *
      * @return mixed
@@ -112,15 +119,7 @@ class SiteController extends Controller {
                     'chairmans_message' => $chairmans_message,
         ]);
     }
-    
-    /**
-     * Displays Sectors Page.
-     *
-     * @return mixed
-     */
-    public function actionSectors() {
-        return $this->render('sectors');
-    }
+
     /**
      * Displays Services Page.
      *
@@ -129,6 +128,7 @@ class SiteController extends Controller {
     public function actionServices() {
         return $this->render('services');
     }
+
     /**
      * Displays careers Page.
      *

@@ -91,17 +91,11 @@ AppAsset::register($this);
                     <li>
                         <a href="">
                             <i class="fa fa-ship"></i>
-                            <span class="title">Houses Boat</span>
+                            <span class="title">CMS</span>
                         </a>
                         <ul>
                             <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Package Types', ['/cms/house-boat-package-type/index'], ['class' => 'title']) ?>
-                            </li>
-                            <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Boat Package', ['/cms/boat-package/index'], ['class' => 'title']) ?>
-                            </li>
-                            <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Exiting Packages', ['/cms/exiting-packages/index'], ['class' => 'title']) ?>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
                             </li>
                         </ul>
                     </li>
@@ -228,18 +222,12 @@ AppAsset::register($this);
                         <li>
                             <a href="">
                                 <i class="fa fa-ship"></i>
-                                <span class="title">House Boat</span>
+                                <span class="title">CMS</span>
                             </a>
                             <ul>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Package Types', ['/cms/house-boat-package-type/index'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Boat Package', ['/cms/boat-package/index'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Exiting Packages', ['/cms/exiting-packages/index'], ['class' => 'title']) ?>
-                                </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
+                            </li>
                             </ul>
                         </li>
                         <li>

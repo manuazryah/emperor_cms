@@ -59,28 +59,42 @@ class ChairmansController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-//    public function actionCreate() {
-//        $model = new Chairmans();
-//
-//        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
-//            $image = UploadedFile::getInstance($model, 'image');
-//            $model->image = $image->extension;
-//            if ($model->validate() && $model->save()) {
-//                if (!empty($image)) {
-//                    $path = Yii::$app->basePath . '/../uploads/chairman/' . $model->id . '/';
-//                    $size = [
-//                        ['width' => 100, 'height' => 75, 'name' => 'small'],
-//                        ['width' => 468, 'height' => 350, 'name' => 'image'],
-//                    ];
-//                    Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
-//                }
-//            }
-//        } else {
-//            return $this->render('create', [
-//                        'model' => $model,
-//            ]);
-//        }
-//    }
+    public function actionCreate() {
+        $model = new Chairmans();
+
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
+           $image = UploadedFile::getInstance($model, 'image');
+            $banner_image = UploadedFile::getInstance($model, 'banner_image');
+            if (!empty($image)) {
+                $model->image = $image->extension;
+            }
+            if (!empty($banner_image)) {
+                $model->banner_image = $banner_image->extension;
+            }
+            if ($model->validate() && $model->save()) {
+                if (!empty($image)) {
+                    $path = Yii::$app->basePath . '/../uploads/chairman/' . $model->id . '/';
+                    $size = [
+                        ['width' => 100, 'height' => 75, 'name' => 'small'],
+                        ['width' => 468, 'height' => 350, 'name' => 'image'],
+                    ];
+                    Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
+                }
+                if (!empty($banner_image)) {
+                    $path = Yii::$app->basePath . '/../uploads/chairman/banner/';
+                    $size1 = [
+                        ['width' => 100, 'height' => 35, 'name' => 'banner_small'],
+                        ['width' => 1300, 'height' => 390, 'name' => 'banner_image'],
+                    ];
+                    Yii::$app->UploadFile->UploadFile($model, $banner_image, $path, $size1);
+                }
+            }
+        } else {
+            return $this->render('create', [
+                        'model' => $model,
+            ]);
+        }
+    }
 
     /**
      * Updates an existing Chairmans model.
@@ -113,7 +127,7 @@ class ChairmansController extends Controller {
                     $path = Yii::$app->basePath . '/../uploads/chairman/banner/';
                     $size1 = [
                         ['width' => 100, 'height' => 35, 'name' => 'banner_small'],
-                        ['width' => 1060, 'height' => 320, 'name' => 'banner_image'],
+                        ['width' => 1300, 'height' => 390, 'name' => 'banner_image'],
                     ];
                     Yii::$app->UploadFile->UploadFile($model, $banner_image, $path, $size1);
                 }
