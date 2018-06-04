@@ -5,7 +5,7 @@ body {
         font-weight: 500;
 }
 .login-bg{
-        background: #32745a;
+        background: #395e9c;
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
@@ -92,7 +92,7 @@ body {
 
         font-size: 14px;
         margin: 10px 15px 0 0;
-        color: #337359;
+        color: #395e9c;
 }
 .separator {
         border-top: 1px solid #D8D8D8;
@@ -119,8 +119,8 @@ body {
 }
 .log-layout .submit{
         padding: 10px 40px;
-        background-color: #337359;
-        border-color: #337359;
+        background-color: #395e9c;
+        border-color: #395e9c;
         text-transform: uppercase;
         font-weight: 600;
         float: left;
