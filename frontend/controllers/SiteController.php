@@ -108,5 +108,30 @@ class SiteController extends Controller {
     public function actionAbout() {
         return $this->render('about');
     }
+    
+    /**
+     * Displays Sectors Page.
+     *
+     * @return mixed
+     */
+    public function actionSectors() {
+        return $this->render('sectors');
+    }
+    /**
+     * Displays Services Page.
+     *
+     * @return mixed
+     */
+    public function actionServices() {
+        return $this->render('services');
+    }
+    /**
+     * Displays careers Page.
+     *
+     * @return mixed
+     */
+    public function actionCareers() {
+        return $this->render('careers');
+    }
 
 }

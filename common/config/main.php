@@ -24,5 +24,8 @@ return [
         'MenuHeader' => [
             'class' => 'common\components\MenuHeaderWidget'
         ],
+        'ServiceLeftMenu' => [
+            'class' => 'common\components\ServiceLeftMenuWidget'
+        ],
     ],
 ];

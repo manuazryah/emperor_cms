@@ -93,13 +93,24 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
 
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom <?= basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'index' ? 'current' : '' ?>"><a title="Home" href="index.php" class="hvr-underline-from-left1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Home</a>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'about' ? 'current' : '' ?>"><a title="About Us" href="about.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">About Us</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'Oil-Gas-Engineering' ? 'current' : '' ?>"><a title="Sectors" href="Oil-Gas-Engineering.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Sectors</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'services' ? 'current' : '' ?>"><a title="Sectors" href="services.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Services</a></li>
-                                        <!--<li class="menu-item menu-item-type-post_type menu-item-object-page <?= basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'projects' ? 'current' : '' ?>"><a title="projects" href="projects.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Projects</a></li>-->
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'careers' ? 'current' : '' ?>"><a title="Careers" href="careers.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Careers</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'contact' ? 'current' : '' ?>"><a title="Contact Us" href="contact.php" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Contact Us</a></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom <?= $action == 'site/index' ? 'current' : '' ?>">
+                                            <?= Html::a('Home', ['/site/index'], ['class' => 'hvr-underline-from-left1']) ?>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/about' ? 'current' : '' ?>">
+                                            <?= Html::a('About Us', ['/site/about'], ['class' => 'hvr-underline-from-left1']) ?>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/sectors' ? 'current' : '' ?>">
+                                            <?= Html::a('Sectors', ['/site/sectors'], ['class' => 'hvr-underline-from-left1']) ?>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/ervices' ? 'current' : '' ?>">
+                                            <?= Html::a('Services', ['/site/services'], ['class' => 'hvr-underline-from-left1']) ?>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/careers' ? 'current' : '' ?>">
+                                            <?= Html::a('Careers', ['/site/careers'], ['class' => 'hvr-underline-from-left1']) ?>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/contact' ? 'current' : '' ?>">
+                                            <?= Html::a('Contact Us', ['/site/contact'], ['class' => 'hvr-underline-from-left1']) ?>
+                                        </li>
                                     </ul>
                                 </div>
                             </nav>
@@ -233,10 +244,10 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
                 </footer>
                 <?php if ($action == 'site/index') { ?>
                 </div>
-                <?php }
-                ?>
+            <?php }
+            ?>
         </div>
-            <?php $this->endBody() ?>
+        <?php $this->endBody() ?>
     </body>
 </html>
 <div class="modal fade offshore-modal-form in" id="modal-1354" tabindex="-1" role="dialog" aria-labelledby="modal-1354-label" style="display: none;">
