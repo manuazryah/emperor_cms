@@ -7850,6 +7850,15 @@ div.wpcf7 .screen-reader-response {
 .about-section-two .content-column .text ul{
     position: relative;
 }
+.about-section-two .content-column .text ul li:before{
+    position: absolute;
+    content: '\f105';
+    left: 0px;
+    top: 0px;
+    color: #264894;
+    font-size: 16px;
+    font-family: 'FontAwesome';
+}
 .about-section-two .content-column .text ul li{
     position: relative;
     font-size: 16px;
@@ -7859,4 +7868,12 @@ div.wpcf7 .screen-reader-response {
     color: #777777;
     font-family: 'Raleway', sans-serif;
     width: 50%; 
+    float: left;
+}
+.circle-listing ul{
+    margin-left: 25px;
+}
+.circle-listing ul li{
+    list-style: disc;
+    line-height: 2.5;
 }

@@ -124,12 +124,46 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
             </header>
 
             <?= $content ?>
-            <?php 
-            if ($action == 'site/index') { 
+            <?php
+            if ($action == 'site/index') {
                 ?>
                 <div id="index-footer">
                 <?php }
                 ?>
+                <section class="kc-elm kc-css-671882 kc_row footer-subscribe">
+                    <div class="kc-row-container">
+                        <div class="kc-wrap-columns">
+                            <div class="kc-elm kc-css-753762 kc_col-sm-12 kc_column kc_col-sm-12">
+                                <div class="kc-col-container">
+                                    <!--Subscribe Section-->
+                                    <section class="subscribe-section">
+                                        <div class="auto-container">
+                                            <div class="row clearfix">
+                                                <div class="title-column col-md-6 col-sm-6 col-xs-12">
+                                                    <h2>For More Company Details</h2>
+                                                    <div class="text">Submit  your email address here</div>
+                                                </div>
+                                                <div class="column col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="subscribe-form">
+                                                        <form method="post" action="mail/subscribe.php">
+                                                            <div class="form-group">
+                                                                <input type="hidden" id="" name="" value="">
+                                                                <input type="email" name="email" value="" placeholder="Your email address" required="">
+                                                                <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.63);-webkit-transform:scale(0.63);transform-origin:0 0;-webkit-transform-origin:0 0;position: absolute;right: -75px;top: 1px;" data-sitekey="6LcjtVcUAAAAAMe_XLQ118yIBxc6VDUN9NB5xccl"><div style="width: 304px; height: 78px;"><div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcjtVcUAAAAAMe_XLQ118yIBxc6VDUN9NB5xccl&amp;co=aHR0cDovL2xvY2FsaG9zdDo4MA..&amp;hl=en&amp;v=v1526884278587&amp;size=normal&amp;cb=roalrq1g664y" width="304" height="78" role="presentation" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div>
+                                                <button type="submit" name="subscribe" class="theme-btn">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--End subscribe Section-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
                 <div class="clearfix"></div>
                 <!--Main Footer-->
                 <footer class="site-footer">
@@ -245,7 +279,7 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
                     </div> 
                 </footer>
                 <?php if ($action == 'site/index') { ?>
-                </div>
+                        </div>
             <?php }
             ?>
         </div>

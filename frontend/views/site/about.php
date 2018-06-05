@@ -194,7 +194,7 @@ use common\components\MenuHeaderWidget;
             <div class="kc-elm kc_col-sm-12 kc_column kc_col-sm-12">
                 <div class="kc-col-container">
                     <div class="auto-container">
-                        <div class="kc-wrap-columns">
+                        <div class="kc-wrap-columns circle-listing">
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"  id="core_value">
                                 <div class="sec-title">
                                     <h2>OUR CORE VALUES</h2>
