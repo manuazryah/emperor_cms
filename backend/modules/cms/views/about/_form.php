@@ -115,17 +115,6 @@ use dosamigos\ckeditor\CKEditor;
         </div>
     </div>
     <div class="row">
-        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'> 
-             <?=
-            $form->field($model, 'chairman_message', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
-                'options' => ['rows' => 6],
-                'preset' => 'custom',
-            ])
-            ?>
-
-        </div>
-    </div>
-    <div class="row">
         <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>   
              <?=
             $form->field($model, 'our_core_values', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
