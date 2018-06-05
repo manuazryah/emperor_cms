@@ -31,6 +31,7 @@ class AppAsset extends AssetBundle
         'css/responsive.css',
     ];
     public $js = [
+        'http://maps.google.com/maps/api/js?key=AIzaSyBhRfpxP8pyckIWC0eq7vMnEBI5_wGar3k&amp;ver=4.9.5',
         'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js',
         'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
 //        'js/jquery.js',

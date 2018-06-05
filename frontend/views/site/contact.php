@@ -68,7 +68,7 @@ use common\components\MenuHeaderWidget;
                                                         <span class="wpcf7-form-control-wrap textarea-59"><textarea name="Message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Massage"></textarea></span>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group text-right">
-                                                            <div id="recaptcha" class="g-recaptcha"  style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;position: absolute;right: 120px;" data-sitekey="6LcjtVcUAAAAAMe_XLQ118yIBxc6VDUN9NB5xccl"></div>
+                                                            <div id="recaptcha" class="g-recaptcha"  style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;position: absolute;right: 120px;" data-sitekey="6LfASkMUAAAAAKb0YThDF1KSdEFtkltDfiBI9_iI"></div>
                                                             <input type="submit" name="Submit" value="Send Now" class="wpcf7-form-control wpcf7-Subscribe theme-btn btn-style-one mt10" />
                                                     </div>
                                                 </div>
