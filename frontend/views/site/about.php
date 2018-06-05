@@ -1,5 +1,6 @@
 <?php
 /* @var $this yii\web\View */
+
 use yii\helpers\Html;
 use common\components\MenuHeaderWidget;
 ?>
@@ -25,7 +26,7 @@ use common\components\MenuHeaderWidget;
                         </button>
                     </div>
 
-                   <?= MenuHeaderWidget::widget() ?>
+                    <?= MenuHeaderWidget::widget() ?>
                 </nav>
                 <!-- Main Menu End-->
             </div>
@@ -38,7 +39,7 @@ use common\components\MenuHeaderWidget;
     <div class="kc-row-container">
         <div class="kc-wrap-columns">
             <div class="kc-elm kc-css-444535 kc_col-sm-12 kc_column kc_col-sm-12">
-                        <div  id="who"></div>
+                <div  id="who"></div>
                 <div class="kc-col-container">
                     <!--About Section-->
                     <section class="about-section-two">
@@ -48,8 +49,10 @@ use common\components\MenuHeaderWidget;
                                 <h2>Who we are</h2>
                             </div>
                             <div class="row clearfix">
-                                <div class="content-column col-md-6 col-sm-6 col-xs-12">
-                                    <?= $about_content->who_we_are ?>
+                                <div class="content-column col-md-6 col-sm-6 col-xs-12 ">
+                                    <div class="text">
+                                        <?= $about_content->who_we_are ?>
+                                    </div>
                                 </div>
                                 <div class="image-column col-md-6 col-sm-6 col-xs-12">
                                     <div class="image">
@@ -97,7 +100,7 @@ use common\components\MenuHeaderWidget;
                                             <div class="content-column col-md-6 col-sm-6 col-xs-12">
                                                 <h3><a href="#">Our Vision</a></h3>
                                                 <div class="text">
-                                                     <?= $about_content->our_vision ?>
+                                                    <?= $about_content->our_vision ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -132,7 +135,7 @@ use common\components\MenuHeaderWidget;
                                         <h2>Why Choose Us</h2>
                                     </div>
                                     <div class="text">
-                                         <?= $about_content->why_choose_us ?>
+                                        <?= $about_content->why_choose_us ?>
                                     </div>
                                     <ul class="choose-info">
                                         <li><span class="icon flaticon-microscope"></span>Advanced <br> Technology</li>
@@ -163,7 +166,7 @@ use common\components\MenuHeaderWidget;
                                     </div>
                                     <div class="text">
                                         <p>
-                                            <?= strlen($chairmans_message->short_content) > 253 ? substr($chairmans_message->short_content, 0, 250) . '...':$chairmans_message->short_content ?>
+                                            <?= strlen($chairmans_message->short_content) > 253 ? substr($chairmans_message->short_content, 0, 250) . '...' : $chairmans_message->short_content ?>
                                             <?= Html::a('Read more', ['/site/chairmans-message'], ['class' => '']) ?>
                                         </p>
                                     </div>
@@ -202,7 +205,7 @@ use common\components\MenuHeaderWidget;
                                 <div class="sec-title">
                                     <h2>OUR CERTIFICATIONS</h2>
                                 </div>
-                                 <?= $about_content->our_certificates ?>
+                                <?= $about_content->our_certificates ?>
                             </div>
                         </div>
                     </div>
@@ -210,49 +213,36 @@ use common\components\MenuHeaderWidget;
             </div>
         </div>
 </section>
-
-<section class="kc-elm kc-css-285117 kc_row our-partners">
-    <div class="kc-row-container">
-        <div class="kc-wrap-columns">
-            <div class="kc-elm kc-css-368189 kc_col-sm-12 kc_column kc_col-sm-12">
-                <div class="kc-col-container">
-                    <!--Clients Section-->
-                    <section class="clients-section">
-                        <div class="auto-container">
-                            <div class="sec-title">
-                                <h2>OUR PARTNERS</h2>
+<?php if (!empty($partners)) { ?>
+    <section class="kc-elm kc-css-285117 kc_row our-partners">
+        <div class="kc-row-container">
+            <div class="kc-wrap-columns">
+                <div class="kc-elm kc-css-368189 kc_col-sm-12 kc_column kc_col-sm-12">
+                    <div class="kc-col-container">
+                        <!--Clients Section-->
+                        <section class="clients-section">
+                            <div class="auto-container">
+                                <div class="sec-title">
+                                    <h2>OUR PARTNERS</h2>
+                                </div>
+                                <div class="sponsors-outer">
+                                    <!--Sponsors Carousel-->
+                                    <ul class="sponsors-carousel owl-carousel owl-theme">
+                                        <?php foreach ($partners as $partner) { ?>
+                                            <li class="slide-item">
+                                                <figure class="image-box"><a href="#"><img src="<?= Yii::$app->homeUrl; ?>uploads/partners/<?= $partner->id ?>/<?= $partner->id ?>.<?= $partner->image ?>" alt="<?= $partner->alt_tag ?>"></a></figure>
+                                            </li>
+                                        <?php }
+                                        ?>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="sponsors-outer">
-                                <!--Sponsors Carousel-->
-                                <ul class="sponsors-carousel owl-carousel owl-theme">
-<li class="slide-item">
-                                        <figure class="image-box"><a href="#"><img src="images/daewoo.png" alt=""></a></figure>
-<li class="slide-item">
-                                        <figure class="image-box"><a href="#"><img src="images/Hyundai.png" alt=""></a></figure>
-<li class="slide-item">
-                                        <figure class="image-box"><a href="#"><img src="images/linde.png" alt=""></a></figure>
-<li class="slide-item">
-                                        <figure class="image-box"><a href="#"><img src="images/bechtel.png" alt=""></a></figure>
-<li class="slide-item">
-                                        <figure class="image-box"><a href="#"><img src="images/cnpc.png" alt=""></a></figure>
-<li class="slide-item">
-                                        <figure class="image-box"><a href="#"><img src="images/ongc.png" alt=""></a></figure>
-                                    <li class="slide-item">
-                                        <figure class="image-box"><a href="#"><img src="images/samsung.png" alt=""></a></figure>
-                                    </li>
-                                    
-                                    
-                                    
-<li class="slide-item">
-                                        <figure class="image-box"><a href="#"><img src="images/adnoc.png" alt=""></a></figure>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    <!--End Clients Section-->
+                        </section>
+                        <!--End Clients Section-->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php }
+?>

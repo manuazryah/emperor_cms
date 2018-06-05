@@ -89,13 +89,7 @@ AppAsset::register($this);
                     </li>
 
                     <li>
-                        <a href="">
-                            <i class="fa fa-ship"></i>
-                            <span class="title">CMS</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
                             </li>
                             <li>
                                 <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
@@ -223,13 +217,7 @@ AppAsset::register($this);
                             <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <a href="">
-                                <i class="fa fa-ship"></i>
-                                <span class="title">CMS</span>
-                            </a>
-                            <ul>
-                            <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
                             </li>
                                 <li>
                                     <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
