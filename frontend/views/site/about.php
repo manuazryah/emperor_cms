@@ -1,6 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-
+use yii\helpers\Html;
 use common\components\MenuHeaderWidget;
 ?>
 <!--Page Title-->
@@ -49,30 +49,11 @@ use common\components\MenuHeaderWidget;
                             </div>
                             <div class="row clearfix">
                                 <div class="content-column col-md-6 col-sm-6 col-xs-12">
-                                    <div class="text">
-                                        <p>When you give to Our Industry, know your donation is making a difference whether you are supporting our signature Programs or our carefully curated list of gifts that professional. Over 24 years experience and knowledge international standards, technologicaly changes and industrial systems.</p>
-                                        <p>We partner with over 450 amazing seds projects worldwide, and have given over million in cash &amp; product grants to other groups since 2016 our own dynamic suite.</p>
-                                    </div>
-                                    <section  id="mission"></section>
-                                    <section  id="vission"></section>
-                                    <div class="row clearfix">
-                                        <div class="column col-md-6 col-sm-6 col-xs-12">
-                                            <ul class="list-style-one">
-                                                <li>Certified Mechanics</li>
-                                                <li>Affordable prices</li>
-                                            </ul>
-                                        </div>
-                                        <div class="column col-md-6 col-sm-6 col-xs-12">
-                                            <ul class="list-style-one">
-                                                <li>24/7 availality</li>
-                                                <li>No hidden cost</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <?= $about_content->who_we_are ?>
                                 </div>
                                 <div class="image-column col-md-6 col-sm-6 col-xs-12">
                                     <div class="image">
-                                        <img src="images/about-3.jpg" alt="" />
+                                        <img src="<?= Yii::$app->homeUrl; ?>uploads/about/who_we_are_image.<?= $about_content->who_we_are_image ?>" alt="who_we_are" />
                                     </div>
                                 </div>
                             </div>
@@ -88,13 +69,15 @@ use common\components\MenuHeaderWidget;
                                             <!--Image Column-->
                                             <div class="image-column col-md-6 col-sm-6 col-xs-12">
                                                 <div class="image">
-                                                    <img src="images/about-1.jpg" alt=""/>
+                                                    <img src="<?= Yii::$app->homeUrl; ?>uploads/about/our_mission_image.<?= $about_content->our_mission_image ?>" alt="our_mission"/>
                                                 </div>
                                             </div>
                                             <!--Content Column-->
                                             <div class="content-column col-md-6 col-sm-6 col-xs-12">
                                                 <h3><a href="#">Our Mission</a></h3>
-                                                <div class="text">We have facility to produce advance work various industrial applications based on specially developed tech- nology are also ready. </div>
+                                                <div class="text">
+                                                    <?= $about_content->our_mission ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -107,13 +90,15 @@ use common\components\MenuHeaderWidget;
                                             <!--Image Column-->
                                             <div class="image-column col-md-6 col-sm-6 col-xs-12">
                                                 <div class="image">
-                                                    <img src="images/about-2.jpg" alt=""/>
+                                                    <img src="<?= Yii::$app->homeUrl; ?>uploads/about/our_vision_image.<?= $about_content->our_vision_image ?>" alt="our_vision"/>
                                                 </div>
                                             </div>
                                             <!--Content Column-->
                                             <div class="content-column col-md-6 col-sm-6 col-xs-12">
                                                 <h3><a href="#">Our Vision</a></h3>
-                                                <div class="text">Complete account of work system, andexpound the actual teachings of the truth must explain to you how this mistaken idea praising. </div>
+                                                <div class="text">
+                                                     <?= $about_content->our_vision ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -137,8 +122,8 @@ use common\components\MenuHeaderWidget;
                     <section class="fluid-section-one">
                         <div class="outer-container clearfix">
                             <!--Image Column-->
-                            <div class="image-column" style="background-image:url('images/image-1-1.jpg');">
-                                <figure class="image-box"><img src="images/image-1-1.jpg" alt=""></figure>
+                            <div class="image-column" style="background-image:url('<?= Yii::$app->homeUrl; ?>uploads/about/why_choose_us_image.<?= $about_content->why_choose_us_image ?>');">
+                                <figure class="image-box"><img src="<?= Yii::$app->homeUrl; ?>uploads/about/why_choose_us_image.<?= $about_content->why_choose_us_image ?>" alt="why_we_choose_image"></figure>
                             </div>
                             <!--Content Column-->
                             <div class="content-column">
@@ -147,8 +132,7 @@ use common\components\MenuHeaderWidget;
                                         <h2>Why Choose Us</h2>
                                     </div>
                                     <div class="text">
-                                        <p>We have facility to produce advance work various industrial applications based on specially developed technol-ogy. We are also ready to developement by according to users changing needs. Infrastructure related installation projects. General repair &amp; industrial and machinery.</p>
-                                        <p>We only source material from tried &amp; trusted suppliers that meet our exacting standards of quality control. Our team up-to-date, sustainable custom manufacturing solutions. </p>
+                                         <?= $about_content->why_choose_us ?>
                                     </div>
                                     <ul class="choose-info">
                                         <li><span class="icon flaticon-microscope"></span>Advanced <br> Technology</li>
@@ -178,9 +162,10 @@ use common\components\MenuHeaderWidget;
                                         <h2>What do say our Chairman ?</h2>
                                     </div>
                                     <div class="text">
-                                        <p>It is with great pleasure that I present the credentials and the potential of Equilibrium Engineering Consultancy to you. 
-</p>
-                                        <p>Equilibrium Engineering Consultancy is an Engineering Consultancy Organization with its vast experience in the successful completion of various engineering assignments.Engineering Consultancy... <a href="chairmans-message.php">Read more</a></p>
+                                        <p>
+                                            <?= strlen($chairmans_message->short_content) > 253 ? substr($chairmans_message->short_content, 0, 250) . '...':$chairmans_message->short_content ?>
+                                            <?= Html::a('Read more', ['/site/chairmans-message'], ['class' => '']) ?>
+                                        </p>
                                     </div>
                                     <ul class="choose-info">
                                         <!--<li><a href="chairmans-message.php" class="theme-btn btn-style-three">Chaiman's Message</a></li>-->
@@ -211,25 +196,13 @@ use common\components\MenuHeaderWidget;
                                 <div class="sec-title">
                                     <h2>OUR CORE VALUES</h2>
                                 </div>
-                                <ul class="bullet-list ml25">
-                                    <li>Technical Excellence and Professional Ethics.</li>
-                                    <li>Integrity and Trust in all our dealings.</li>
-                                    <li>Emphasis of innovation, and through this, maximization of customer value.</li>
-                                    <li>Sense of ownership, collaboration and support shared with clients.</li>
-                                    <li>Pursuit of excellence in all aspects of our service delivery.</li>
-                                    <li>Commitment to developing and maintaining long term relationships with customers.</li>
-                                </ul>
+                                <?= $about_content->our_core_values ?>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                 <div class="sec-title">
                                     <h2>OUR CERTIFICATIONS</h2>
                                 </div>
-                                <ul class="bullet-list ml25">
-                                    <li>Mosaic Information Technology.</li>
-                                    <li>Arrow Market.</li>
-                                    <li>Crea Box Oil Refinery Industry.</li>
-                                    <li>Montorin.</li>
-                                </ul>
+                                 <?= $about_content->our_certificates ?>
                             </div>
                         </div>
                     </div>

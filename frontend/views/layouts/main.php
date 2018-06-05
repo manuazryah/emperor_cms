@@ -124,7 +124,9 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
             </header>
 
             <?= $content ?>
-            <?php if ($action == 'site/index') { ?>
+            <?php 
+            if ($action == 'site/index') { 
+                ?>
                 <div id="index-footer">
                 <?php }
                 ?>

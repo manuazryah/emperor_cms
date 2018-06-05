@@ -1045,7 +1045,7 @@ use common\models\Chairmans;
                                  data-type="roadmap"
                                  data-hue="#ffc400"
                                  data-title="EQUILIBRIUM ENGINEERING CONSULTANCY"
-                                 data-icon-path="images/map-marker.png"
+                                 data-icon-path="<?= Yii::$app->homeUrl ?>images/map-marker.png"
                                  data-content="7 5 A St , Equilibrium Engineering Consultancy, Abu Dhabi, United Arab Emirates<br><a href='mailto:info@eqec.ae'>info@eqec.ae</a>">
                             </div>
                         </div>

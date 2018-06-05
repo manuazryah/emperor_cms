@@ -74,7 +74,6 @@ class SiteController extends Controller {
     }
 
     public function actionChairmansMessage() {
-        echo 'aa';exit;
         return $this->render('chairmans');
     }
 
@@ -106,7 +105,12 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionAbout() {
-        return $this->render('about');
+        $about_content = \common\models\About::find()->where(['id' => 1])->one();
+        $chairmans_message = \common\models\Chairmans::find()->where(['id' => 1])->one();
+        return $this->render('about', [
+                    'about_content' => $about_content,
+                    'chairmans_message' => $chairmans_message,
+        ]);
     }
     
     /**

@@ -22,17 +22,60 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </div>
                 <div class="panel-body">
-                    <div class="about-create">
-                        <?=
-                        $this->render('_form', [
-                            'model' => $model,
-                        ])
-                        ?>
-                    </div>
+
+                    
+                                                <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                    
+
+
+                    <?=  Html::a('<i class="fa-th-list"></i><span> Create About</span>', ['create'], ['class' => 'btn btn-warning  btn-icon btn-icon-standalone']) ?>
+                    <button class="btn btn-white" id="search-option" style="float: right;">
+                        <i class="linecons-search"></i>
+                        <span>Search</span>
+                    </button>
+                    <div class="table-responsive" style="border: none">
+                                                                            <?= GridView::widget([
+                            'dataProvider' => $dataProvider,
+                            'filterModel' => $searchModel,
+        'columns' => [
+                            ['class' => 'yii\grid\SerialColumn'],
+
+                                        'id',
+            'who_we_are:ntext',
+            'who_we_are_image',
+            'our_mission:ntext',
+            'our_mission_image',
+            // 'our_vision:ntext',
+            // 'our_vision_image',
+            // 'why_choose_us:ntext',
+            // 'why_choose_us_image',
+            // 'chairman_message:ntext',
+            // 'chairman_image',
+            // 'profile',
+            // 'our_core_values:ntext',
+            // 'our_certificates:ntext',
+            // 'status',
+            // 'CB',
+            // 'UB',
+            // 'DOC',
+            // 'DOU',
+
+                            ['class' => 'yii\grid\ActionColumn'],
+                            ],
+                            ]); ?>
+                                                                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+        $(".filters").slideToggle();
+        $("#search-option").click(function () {
+            $(".filters").slideToggle();
+        });
+    });
+</script>
 

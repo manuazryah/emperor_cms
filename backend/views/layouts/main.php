@@ -82,6 +82,9 @@ AppAsset::register($this);
                         <?= Html::a('<i class="fa fa-sliders"></i> <span class="title">Sliders</span>', ['/cms/slider/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
+                        <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">About Equilibrium</span>', ['/cms/about/index'], ['class' => 'title']) ?>
+                    </li>
+                    <li>
                         <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
                     </li>
 
@@ -215,6 +218,9 @@ AppAsset::register($this);
                         ?>
                         <li>
                             <?= Html::a('<i class="fa fa-sliders"></i> <span class="title">Sliders</span>', ['/cms/slider/index'], ['class' => 'title']) ?>
+                        </li>
+                        <li>
+                            <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">About Equilibrium</span>', ['/cms/about/index'], ['class' => 'title']) ?>
                         </li>
                         <li>
                             <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>

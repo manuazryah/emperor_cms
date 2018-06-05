@@ -19,7 +19,7 @@ class AboutSearch extends About
     {
         return [
             [['id', 'status', 'CB', 'UB'], 'integer'],
-            [['who_we_are', 'who_we_are_image', 'our_mission', 'our_mission_image', 'our_vision', 'our_vision_image', 'why_choose_us', 'why_choose_us_image', 'chairman_message', 'chairman_image', 'profile', 'our_core_values', 'our_certificates', 'DOC', 'DOU'], 'safe'],
+            [['title', 'image', 'content', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
@@ -67,19 +67,9 @@ class AboutSearch extends About
             'DOU' => $this->DOU,
         ]);
 
-        $query->andFilterWhere(['like', 'who_we_are', $this->who_we_are])
-            ->andFilterWhere(['like', 'who_we_are_image', $this->who_we_are_image])
-            ->andFilterWhere(['like', 'our_mission', $this->our_mission])
-            ->andFilterWhere(['like', 'our_mission_image', $this->our_mission_image])
-            ->andFilterWhere(['like', 'our_vision', $this->our_vision])
-            ->andFilterWhere(['like', 'our_vision_image', $this->our_vision_image])
-            ->andFilterWhere(['like', 'why_choose_us', $this->why_choose_us])
-            ->andFilterWhere(['like', 'why_choose_us_image', $this->why_choose_us_image])
-            ->andFilterWhere(['like', 'chairman_message', $this->chairman_message])
-            ->andFilterWhere(['like', 'chairman_image', $this->chairman_image])
-            ->andFilterWhere(['like', 'profile', $this->profile])
-            ->andFilterWhere(['like', 'our_core_values', $this->our_core_values])
-            ->andFilterWhere(['like', 'our_certificates', $this->our_certificates]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'image', $this->image])
+            ->andFilterWhere(['like', 'content', $this->content]);
 
         return $dataProvider;
     }

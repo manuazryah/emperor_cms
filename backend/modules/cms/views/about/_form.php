@@ -8,84 +8,150 @@ use dosamigos\ckeditor\CKEditor;
 /* @var $model common\models\About */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<style>
-    .img-box{
-        margin: 10px 0px;
-    }
-    .news-img{
-        border: 1px solid #e4dede;
-    }
-    .gal-img-remove{
-        position: absolute;
-        top: 6px;
-        right: 16px;
-        font-size: 16px;
-        color: red;
-    }
-</style>
+
 <div class="about-form form-inline">
 
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
-        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>    
-            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'who_we_are_image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 570x280 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
+            <?php
+            if ($model->isNewRecord)
+                echo "";
+            else {
+                if (!empty($model->who_we_are_image)) {
+                    ?>
+
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/about/who_we_are_image.<?= $model->who_we_are_image; ?>"/>
+                    <?php
+                }
+            }
+            ?>
 
         </div>
-    </div>
-    <div class="row">
-        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'> 
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>  
             <?=
-            $form->field($model, 'content', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
+            $form->field($model, 'who_we_are', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
                 'options' => ['rows' => 2],
                 'preset' => 'custom',
             ])
             ?>
 
-        </div> 
-        <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>    
-            <?= $form->field($model, 'image[]', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 1400x933 ) ]</label>{input}{error}'])->fileInput(['multiple' => true])->label(FALSE) ?>
-
         </div>
-    </div>
-    <div class="row">
-        <?php
-        $path = Yii::getAlias('@paths') . '/about_slider';
-        if (count(glob("{$path}/*")) > 0) {
-            $k = 0;
-            foreach (glob("{$path}/*") as $file) {
-                $k++;
-                $arry = explode('/', $file);
-                $img_nmee = end($arry);
-
-                $img_nmees = explode('.', $img_nmee);
-                if ($img_nmees['1'] != '') {
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'our_mission_image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 250x160 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
+            <?php
+            if ($model->isNewRecord)
+                echo "";
+            else {
+                if (!empty($model->our_mission_image)) {
                     ?>
 
-                    <div class = "col-md-3 img-box" id="<?= $k; ?>">
-                        <div class="news-img">
-                            <img class="img-responsive" src="<?= Yii::$app->homeUrl . '../uploads/about_slider/' . end($arry) ?>">
-                            <?= Html::a('<i class="fa fa-remove"></i>', ['/cms/about/remove', 'path' => Yii::$app->basePath . '/../uploads/about_slider/' . end($arry)], ['class' => 'gal-img-remove']) ?>
-                        </div> 
-                    </div>
-
-
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/about/our_mission_image.<?= $model->our_mission_image; ?>"/>
                     <?php
                 }
-                if ($k % 4 == 0) {
+            }
+            ?>
+
+        </div>
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>
+            <?=
+            $form->field($model, 'our_mission', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
+                'options' => ['rows' => 2],
+                'preset' => 'custom',
+            ])
+            ?>
+
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'our_vision_image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 250x160 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
+            <?php
+            if ($model->isNewRecord)
+                echo "";
+            else {
+                if (!empty($model->our_vision_image)) {
                     ?>
-                    <div class="clearfix"></div>
-                <?php
+
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/about/our_vision_image.<?= $model->our_vision_image; ?>"/>
+                    <?php
                 }
             }
-        }
-        ?>
-    </div>
-    <div class="row">
-        <div class='col-md-12 col-sm-12 col-xs-12'>
-            <div class="form-group">
-<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'style' => 'float:right;']) ?>
-            </div>
+            ?>
+
+        </div>
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'> 
+            <?=
+            $form->field($model, 'our_vision', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
+                'options' => ['rows' => 2],
+                'preset' => 'custom',
+            ])
+            ?>
+
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'why_choose_us_image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 910x621 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
+            <?php
+            if ($model->isNewRecord)
+                echo "";
+            else {
+                if (!empty($model->why_choose_us_image)) {
+                    ?>
+
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/about/why_choose_us_image.<?= $model->why_choose_us_image; ?>" />
+                    <?php
+                }
+            }
+            ?>
+
+        </div>
+         <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>  
+             <?=
+            $form->field($model, 'why_choose_us', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
+                'options' => ['rows' => 2],
+                'preset' => 'custom',
+            ])
+            ?>
+
         </div>
     </div>
-<?php ActiveForm::end(); ?>
-</div>
+    <div class="row">
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'> 
+             <?=
+            $form->field($model, 'chairman_message', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
+                'options' => ['rows' => 6],
+                'preset' => 'custom',
+            ])
+            ?>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>   
+             <?=
+            $form->field($model, 'our_core_values', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
+                'options' => ['rows' => 2],
+                'preset' => 'custom',
+            ])
+            ?>
+
+        </div>
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'> 
+             <?=
+            $form->field($model, 'our_certificates', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
+                'options' => ['rows' => 2],
+                'preset' => 'custom',
+            ])
+            ?>
+
+        </div>
+    </div>
+     <div class="row">
+        <div class='col-md-12 col-sm-2 col-xs-12'>
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'float:right;']) ?>
+            </div>
+        </div>
+     </div>
+        <?php ActiveForm::end(); ?>
+
+    </div>
