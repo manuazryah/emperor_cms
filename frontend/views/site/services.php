@@ -3,6 +3,7 @@
 
 use common\components\MenuHeaderWidget;
 use common\components\ServiceSidemenuWidget;
+use common\models\BusinessAssociation;
 $this->title = $services->title;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -92,49 +93,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <h2>BUSINESS ASSOCIATIONS</h2>
                                 </div>
                             </div>
+                            <?php $business = BusinessAssociation::findOne(1);?>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <img src="<?= yii::$app->homeUrl; ?>images/projects-lftside.jpg" alt="post_img" class="img-responsive">
+                                <img src="<?= Yii::$app->homeUrl ?>uploads/business/<?= $business->id; ?>/image.<?= $business->image; ?>" alt="post_img" class="img-responsive">
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <ul class="bullet-list ml25">
-                                        <li>Abu Dhabi National Oil Company (ADNOC)</li>
-                                        <li>ADNOC Gas Processing</li>
-                                        <li>ADNOC Offshore</li>
-                                        <li>ADNOC Sour Gas</li>
-                                        <li>ADNOC Industrial Gases</li>
-                                        <li>ADNOC Refining</li>
-                                        <li>ADNOC Distribution</li>
-                                        <li>TOTAL</li>
-                                        <li>Shell</li>
-                                        <li>Partex Gas</li>
-                                        <li>British Petroleum</li>
-                                        <li>DODSAL</li>
-                                        <li>Bechtel Corporation</li>
-                                        <li>Fluor Corporation</li>
-                                        <li>Linde AG</li>
-                                        <li>Bauer Group</li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <ul class="bullet-list ml25">
-                                        <li>Chiyoda Corpration</li>
-                                        <li>Bell Energy</li>
-                                        <li>TAQA</li>
-                                        <li>Engineers India Limited</li>
-                                        <li>ONGC</li>
-                                        <li>CNPC</li>
-                                        <li>Hyundai Engineering</li>
-                                        <li>GS Engineering</li>
-                                        <li>SK Engineering</li>
-                                        <li>Daewoo</li>
-                                        <li>Samsung</li>
-                                        <li>Toyo</li>
-                                        <li>AMEC Foster Wheeler</li>
-                                        <li>Jacobs Engineering</li>
-                                        <li>Technicas Reunida</li>
-                                    </ul>
-                                </div>
+                                <?= $business->content;?>
                             </div>
                         </div>
                     </div>

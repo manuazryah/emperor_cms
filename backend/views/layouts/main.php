@@ -89,12 +89,24 @@ AppAsset::register($this);
                     </li>
 
                     <li>
-                        <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
+                        <a href="">
+                            <i class="fa fa-ship"></i>
+                            <span class="title">CMS</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
                             </li>
                             <li>
                                 <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
                             </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Business Association', ['/cms/business-association/update?id=1'], ['class' => 'title']) ?>
+                            </li>
                         </ul>
+                    </li>
+                    <li>
+                        <?= Html::a('<i class="fa fa-map-marker"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
                         <?= Html::a('<i class="fa fa-map-marker"></i> <span class="title">Contact Address</span>', ['/cms/contact-address/index'], ['class' => 'title']) ?>
@@ -217,13 +229,25 @@ AppAsset::register($this);
                             <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
+                            <a href="">
+                                <i class="fa fa-ship"></i>
+                                <span class="title">CMS</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
                             </li>
                                 <li>
                                     <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
                                 </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Business Association', ['/cms/business-association/update?id=1'], ['class' => 'title']) ?>
+                                </li>
                             </ul>
                         </li>
+                    <li>
+                        <?= Html::a('<i class="fa fa-map-marker"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
+                    </li>
                         <li>
                             <?= Html::a('<i class="fa fa-map-marker"></i> <span class="title">Contact Address</span>', ['/cms/contact-address/index'], ['class' => 'title']) ?>
                         </li>

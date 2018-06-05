@@ -138,10 +138,8 @@ class ServicesController extends Controller {
                         $model->upload($banner_image, $model, $name);
                     }
                 }
-                Yii::$app->session->setFlash('success', "New Services added Successfully");
-            } else {
-//                var_dump($model->validat());exit;
-            }
+                Yii::$app->session->setFlash('success', "Services updated Successfully");
+            } 
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [
