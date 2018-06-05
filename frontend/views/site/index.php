@@ -127,7 +127,7 @@ use common\models\Sectors;
             <div class="kc-elm kc-css-102672 kc_col-sm-12 kc_column kc_col-sm-12">
                 <div class="kc-col-container">
                     <!--Call To Action-->
-                    <section class="call-to-action" style="background-image:url('../images/1.jpg')">
+                    <section class="call-to-action" style="background-image: url('images/1.jpg')">
                         <div class="auto-container">
                             <div class="row clearfix">
                                 <!--Column-->
@@ -173,23 +173,23 @@ use common\models\Sectors;
                                     <div class="services-block col-md-4 col-sm-6 col-xs-12">
                                         <div class="inner-box hvr-float">
                                             <div class="image">
-                                                <img src="<?= Yii::$app->homeUrl.'uploads/sectors/'.$sector->id.'/small/image.'.$sector->small_image; ?>" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="<?= Yii::$app->homeUrl.'uploads/sectors/'.$sector->id.'/small/image.'.$sector->small_image; ?>" />
+                                                <img src="<?= Yii::$app->homeUrl . 'uploads/sectors/' . $sector->id . '/small/image.' . $sector->small_image; ?>" class="attachment-equlibrium_370x218 size-equlibrium_370x218 wp-post-image" alt="" srcset="<?= Yii::$app->homeUrl . 'uploads/sectors/' . $sector->id . '/small/image.' . $sector->small_image; ?>" />
                                                 <div class="icon-box">
                                                     <span class="icon flaticon-spray-gas-bottle"></span>
                                                 </div>
                                                 <div class="overlay-box clearfix">
-                                                    <div class="text">"<?= substr($sector->main_content, 0, 80) ?>..."</div>
-                                                    <a href="<?= Yii::$app->homeUrl.'site/sectors?sector='.$sector->canonical_name.'#'.$sector->canonical_name; ?>" class="read-more">Read More</a>
+                                                    <div class="text"><?= substr($sector->main_content, 0, 80) ?>..</div>
+                                                    <a href="<?= Yii::$app->homeUrl . 'site/sectors?sector=' . $sector->canonical_name . '#' . $sector->canonical_name; ?>" class="read-more">Read More</a>
                                                 </div>
                                             </div>
                                             <div class="lower-box">
-                                                <h3><a href="<?= Yii::$app->homeUrl.'site/sectors?sector='.$sector->canonical_name.'#'.$sector->canonical_name; ?>"><?= $sector->name ?></a></h3>
+                                                <h3><a href="<?= Yii::$app->homeUrl . 'site/sectors?sector=' . $sector->canonical_name . '#' . $sector->canonical_name; ?>"><?= $sector->name ?> </a></h3>
                                             </div>
                                         </div>
                                     </div>
                                 <?php } ?>
                                 <!--Services Block-->
-                                
+
                             </div>
                         </div>
                     </section>

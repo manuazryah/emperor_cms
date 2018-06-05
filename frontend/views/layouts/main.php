@@ -102,8 +102,8 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/sectors' ? 'current' : '' ?>">
                                             <?= Html::a('Sectors', ['/site/sectors'], ['class' => 'hvr-underline-from-left1']) ?>
                                         </li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/ervices' ? 'current' : '' ?>">
-                                            <?= Html::a('Services', ['/site/services'], ['class' => 'hvr-underline-from-left1']) ?>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/services' ? 'current' : '' ?>">
+                                            <?= Html::a('Services', ['/site/services?service=our-services'], ['class' => 'hvr-underline-from-left1']) ?>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/careers' ? 'current' : '' ?>">
                                             <?= Html::a('Careers', ['/site/careers'], ['class' => 'hvr-underline-from-left1']) ?>

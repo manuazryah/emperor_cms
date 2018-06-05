@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\Sectors;
+use common\models\Services;
 use frontend\models\ContactForm;
 
 /**
@@ -83,6 +84,15 @@ class SiteController extends Controller {
         $sectors = Sectors::find()->where(['status' => 1, 'canonical_name' => $sector])->one();
         return $this->render('sector', ['sectors' => $sectors]);
     }
+    /**
+     * Displays Services Page.
+     *
+     * @return mixed
+     */
+    public function actionServices($service) {
+        $services = Services::find()->where(['status' => 1, 'canonical_name' => $service])->one();
+        return $this->render('services', ['services' => $services]);
+    }
 
     /**
      * Displays contact page.
@@ -120,14 +130,7 @@ class SiteController extends Controller {
         ]);
     }
 
-    /**
-     * Displays Services Page.
-     *
-     * @return mixed
-     */
-    public function actionServices() {
-        return $this->render('services');
-    }
+
 
     /**
      * Displays careers Page.

@@ -97,6 +97,9 @@ AppAsset::register($this);
                             <li>
                                 <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
                             </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -228,6 +231,9 @@ AppAsset::register($this);
                             <li>
                                 <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
                             </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
+                                </li>
                             </ul>
                         </li>
                         <li>
