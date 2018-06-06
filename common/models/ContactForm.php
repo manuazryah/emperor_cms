@@ -28,7 +28,7 @@ class ContactForm extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-                [['message', 'name', 'email', 'phone'], 'required'],
+                [['message', 'name', 'email', 'phone','subject'], 'required'],
                 [['message'], 'string'],
                 [['date'], 'safe'],
                 [['name', 'email'], 'string', 'max' => 100],
@@ -44,9 +44,20 @@ class ContactForm extends \yii\db\ActiveRecord {
             'name' => 'Name',
             'email' => 'Email',
             'phone' => 'Phone',
+            'subject' => 'Subject',
             'message' => 'Message',
             'date' => 'Date',
         ];
+    }
+    
+    public function sendEmail($email)
+    {
+        return Yii::$app->mailer->compose()
+            ->setTo($email)
+            ->setFrom([$this->email => $this->name])
+            ->setSubject($this->subject)
+            ->setTextBody($this->message)
+            ->send();
     }
 
 }

@@ -10,7 +10,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\Sectors;
 use common\models\Services;
-use frontend\models\ContactForm;
+use common\models\ContactForm;
 
 /**
  * Site controller
@@ -69,8 +69,10 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
         $about_content = \common\models\About::find()->where(['id' => 1])->one();
+        $contact_info = \common\models\ContactInfo::find()->where(['id' => 1])->one();
         return $this->render('index', [
-                    'about_content' => $about_content
+                    'about_content' => $about_content,
+                    'contact_info' => $contact_info
         ]);
     }
 
@@ -104,20 +106,80 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionContact() {
+        $contact_info = \common\models\ContactInfo::find()->where(['id' => 1])->one();
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+        if ($model->load(Yii::$app->request->post())) {
+            if (isset($_POST['g-recaptcha-response']))
+                $captcha = $_POST['g-recaptcha-response'];
+            if ($captcha) {
+                $model->date = date('Y-m-d');
+                if ($model->save()) {
+                    $this->sendContactMail($model);
+                }
             }
-
             return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                        'model' => $model,
-            ]);
-        }
+        } return $this->render('contact', [
+                    'model' => $model,
+                    'contact_info' => $contact_info,
+        ]);
+    }
+
+    /**
+     * This function send contact message to admin.
+     */
+    public function sendContactMail($model) {
+
+        $subject = "Enquiry From Equilibrium";
+        $to = "manu@azryah.com";
+
+        $message = "<html>
+<head>
+
+</head>
+<body>
+<p><b>Enquiry Received From Website</b></p>
+<table>
+<tr>
+<th>Name</th>
+<th>:-</th>
+
+<td>" . $model->name . "</td>
+</tr>
+
+<tr>
+<tr>
+<th>Email Id</th>
+<th>:-</th>
+
+<td>" . $model->email . "</td>
+</tr>
+
+<tr>
+
+<th>Phone</th>
+<th>:-</th>
+<td>" . $model->phone . "</td>
+</tr>
+<tr>
+
+<th>Reason for Contact</th>
+<th>:-</th>
+<td>" . $model->message . "</td>
+</tr>
+<tr>
+
+
+<tr>
+
+
+</table>
+</body>
+</html>
+";
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
+                "From: no-replay@equilibrium.com";
+        mail($to, $subject, $message, $headers);
     }
 
     /**

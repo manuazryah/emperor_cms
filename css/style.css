@@ -155,15 +155,15 @@ ul,li{
 
 .btn-style-one{
     position:relative;
-    padding:6px 20px;
+    padding:6px 20px !important;
     line-height:24px;
     color:#fff;
-    font-size:18px;
-    font-weight:500;
+    font-size:18px !important;
+    font-weight:500 !important;
     background:#264894;
-    border-radius:5px;
+    border-radius:5px !important;
     border:2px solid #264894;
-    text-transform:capitalize;
+    text-transform:capitalize !important;
 }
 
 .btn-style-one:hover{
@@ -7755,7 +7755,7 @@ footer #equlibrium_mailchimp_widget-2{
     bottom: -1px;
 }
 .mt10{
-    margin-top: 10px;
+    margin-top: 10px !important;
 }
 #index-footer .footer-subscribe{
     display: none;

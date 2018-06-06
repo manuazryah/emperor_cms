@@ -3,14 +3,11 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
-use common\widgets\Alert;
 
 AppAsset::register($this);
 $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
+$contact_data = common\models\ContactInfo::findOne(1);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -21,6 +18,7 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <?php $this->head() ?>
     </head>
     <body class="home page-template page-template-tpl-king_composer page-template-tpl-king_composer-php page page-id-7 kingcomposer kc-css-system">
@@ -35,13 +33,13 @@ $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
                         <div class="inner-container clearfix">
                             <div class="top-left">
                                 <ul class="clearfix">
-                                    <li><a href="javascript:;"><span class="icon fa fa-volume-control-phone"></span> Call us: +971 (2) 6737766</a></li>
+                                    <li><a href="javascript:;"><span class="icon fa fa-volume-control-phone"></span> Call us: <?= $contact_data->phone ?></a></li>
                                 </ul>
                             </div>
 
                             <div class="top-right clearfix">
                                 <ul class="social-icon-one">
-                                    <li><a href="Tel:+44-567-890123"><span class="icon fa fa-envelope-o"></span> info@eqec.ae</a></li>
+                                    <li><a href=""><span class="icon fa fa-envelope-o"></span> <?= $contact_data->email ?></a></li>
 <!--                                    <li><a href="">Solutions</a> <span>:</span></li>
                                     <li><a href="">Products</a> <span>:</span></li>
                                     <li><a href="">News & Events</a> <span>:</span></li>
