@@ -73,7 +73,7 @@ use dosamigos\ckeditor\CKEditor;
     </div>
     <div class="row">
         <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>   
-            <?= $form->field($model, 'small_image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Small Image [ File Size :( 1024*680 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
+            <?= $form->field($model, 'small_image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Small Image [ File Size :( 960*540 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
             <?php
             if ($model->isNewRecord)
                 echo "";

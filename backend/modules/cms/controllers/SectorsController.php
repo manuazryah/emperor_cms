@@ -78,7 +78,7 @@ class SectorsController extends Controller {
                     $path = Yii::$app->basePath . '/../uploads/sectors/' . $model->id . '/small/';
                     $size = [
                         ['width' => 150, 'height' => 90, 'name' => 'small'],
-                        ['width' => 1024, 'height' => 683, 'name' => 'image'],
+                        ['width' => 960, 'height' => 540, 'name' => 'image'],
                     ];
                     Yii::$app->UploadFile->UploadFile($model, $small_image, $path, $size);
                 }
@@ -132,7 +132,7 @@ class SectorsController extends Controller {
                     $path = Yii::$app->basePath . '/../uploads/sectors/' . $model->id . '/small/';
                     $size = [
                         ['width' => 150, 'height' => 90, 'name' => 'small'],
-                        ['width' => 1024, 'height' => 683, 'name' => 'image'],
+                        ['width' => 960, 'height' => 540, 'name' => 'image'],
                     ];
                     Yii::$app->UploadFile->UploadFile($model, $small_image, $path, $size);
                 }

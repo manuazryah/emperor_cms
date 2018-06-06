@@ -266,56 +266,7 @@ $contact_data = common\models\ContactInfo::findOne(1);
         <?php $this->endBody() ?>
     </body>
 </html>
-<div class="modal fade offshore-modal-form in" id="modal-1354" tabindex="-1" role="dialog" aria-labelledby="modal-1354-label" style="display: none;">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="modal-1354-label">Apply for this Job</h4>
-            </div>
-            <div class="modal-body">
-                <div role="form" class="wpcf7" id="wpcf7-f1332-o1" lang="en-US" dir="ltr">
-                    <div class="screen-reader-response"></div>
-                    <form action="" method="post" class="wpcf7-form" enctype="multipart/form-data" novalidate="novalidate">
-                        <div style="display: none;">
-                            <input type="hidden" name="_wpcf7" value="1332">
-                            <input type="hidden" name="_wpcf7_version" value="4.8.1">
-                            <input type="hidden" name="_wpcf7_locale" value="en_US">
-                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1332-o1">
-                            <input type="hidden" name="_wpcf7_container_post" value="0">
-                            <input type="hidden" name="_wpcf7_nonce" value="1a47d9a418">
-                        </div>
-                        <div class="form-group"><span class="wpcf7-form-control-wrap name"><input type="text" name="name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Full Name"></span></div>
-                        <div class="form-group"><span class="wpcf7-form-control-wrap email"><input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form-control" aria-required="true" aria-invalid="false" placeholder="Email Address"></span></div>
-                        <div class="form-group"><span class="wpcf7-form-control-wrap phone"><input type="text" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Phone number"></span></div>
-                        <div class="form-group"><span class="wpcf7-form-control-wrap phone"><input type="text" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Job Ref"></span></div>
-<!--                        <div class="form-group">  <select class="job-ref  form-control" style="height: 48px;" data-style="btn-primary">
-                                <option>Job Ref:</option>
-                                <option>Oil & Gas</option>
-                                <option>Petrolium</option>
-                                <option>Relish</option>
-                            </select>
-                        </div>-->
-                        <div id="upload_button">
-                            <label>
-                                <input type="file" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-                                <span class="btn btn-primary">Browse CV</span>
-                            </label>
-                        </div>
-                        <!--                        /*******/
-                                                <div class="form-group">
-                                                    <span class="wpcf7-form-control-wrap resume">
-                                                        <input type="file" name="resume" size="40" class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
-                                                    </span>
-                                                </div>
-                        /**************************/-->
-                        <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.63);-webkit-transform:scale(0.63);transform-origin:0 0;-webkit-transform-origin:0 0;position: absolute;right: -70px;bottom: 65px; margin-bottom: 15px;" data-sitekey="6LcjtVcUAAAAAMe_XLQ118yIBxc6VDUN9NB5xccl"></div>
-                        <p><input type="submit" value="Apply" class="wpcf7-form-control wpcf7-submit btn btn-block btn-warning btn-style-three"><span class="ajax-loader"></span></p>
-                        <div class="wpcf7-response-output wpcf7-display-none"></div></form></div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <?php $this->endPage() ?>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
