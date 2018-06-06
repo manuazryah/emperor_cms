@@ -188,35 +188,35 @@ use yii\widgets\ActiveForm;
                 <div role="form" class="wpcf7" id="wpcf7-f1332-o1" lang="en-US" dir="ltr">
                     <div class="screen-reader-response"></div>
                     <?php
-                    $model = new \common\models\CareerJob;
                     $form = ActiveForm::begin();
                     ?>
                     <!--<form action="" method="post" class="wpcf7-form" enctype="multipart/form-data" novalidate="novalidate">-->
-                    <div style="display: none;">
-                        <input type="hidden" name="_wpcf7" value="1332">
-                        <input type="hidden" name="_wpcf7_version" value="4.8.1">
-                        <input type="hidden" name="_wpcf7_locale" value="en_US">
-                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1332-o1">
-                        <input type="hidden" name="_wpcf7_container_post" value="0">
-                        <input type="hidden" name="_wpcf7_nonce" value="1a47d9a418">
-                    </div>
+
                     <div class="form-group"><span class="wpcf7-form-control-wrap name">
-                            <?= $form->field($model, 'name')->textInput(['placeholder'=>'Full Name','maxlength' => true])->label(FALSE) ?>
+                            <?= $form->field($model, 'name')->textInput(['placeholder' => 'Full Name', 'maxlength' => true])->label(FALSE) ?>
                         </span></div>
                     <div class="form-group"><span class="wpcf7-form-control-wrap email">
-                            <?= $form->field($model, 'email')->textInput()->input('email',['placeholder'=>'Email','maxlength' => true])->label(FALSE) ?>
+                            <?= $form->field($model, 'email')->textInput()->input('email', ['placeholder' => 'Email', 'maxlength' => true])->label(FALSE) ?>
                         </span></div>
                     <div class="form-group"><span class="wpcf7-form-control-wrap phone">
-                            <?= $form->field($model, 'mobile')->textInput(['placeholder'=>'Mobile','maxlength' => true])->label(FALSE) ?>
-                            </span></div>
-                    <div class="form-group"><span class="wpcf7-form-control-wrap phone">
-                            <?= $form->field($model, 'reference')->textInput(['placeholder'=>'Job Reference','maxlength' => true])->label(FALSE) ?>
-                            </span></div>
+                            <?= $form->field($model, 'mobile')->textInput(['placeholder' => 'Mobile', 'maxlength' => true])->label(FALSE) ?>
+                        </span></div>
+                    <div class="form-group">
+                        <span class="wpcf7-form-control-wrap phone">
+                            <?= $form->field($model, 'reference')->textInput(['placeholder' => 'Job Reference', 'maxlength' => true])->label(FALSE) ?>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span class="wpcf7-form-control-wrap phone">
+                            <?= $form->field($model, 'cv')->fileInput()->label('Upload CV'); ?>
+                        </span>
+                    </div>
 
                     <div id="upload_button">
                         <label>
-                            <input type="file" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" multiple>
-                            <span class="btn btn-primary">Browse CV</span>
+
+<!--                            <input type="file" ngf-select ng-model="new_files" ng-change="fs.uploadFiles(new_files)" name="cv">
+ <span class="btn btn-primary">Browse CV</span>-->
                         </label>
                     </div>
                     <!--                        /*******/

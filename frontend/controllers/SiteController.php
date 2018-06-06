@@ -11,6 +11,9 @@ use yii\filters\AccessControl;
 use common\models\Sectors;
 use common\models\Services;
 use common\models\ContactForm;
+use app\models\UploadForm;
+use yii\web\UploadedFile;
+use common\models\CareerJob;
 
 /**
  * Site controller
@@ -172,10 +175,35 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionCareers() {
+        $model = new CareerJob;
         $sectors = Sectors::find()->where(['status' => 1])->all();
+        if ($model->load(Yii::$app->request->post())) {
+//           echo '<pre>';           print_r($_FILES["cv"]);exit;
+            $cv = UploadedFile::getInstance($model, 'cv');
+            $model->cv = $cv->extension;
+            $model->career_id = 1;
+            if ($model->validate() && $model->save()) {
+
+                if (!empty($cv)) {
+                    $this->upload($model, $cv);
+                }
+                Yii::$app->session->setFlash('success', "New Careers added Successfully");
+                 $model = new CareerJob;
+            }
+        }
         return $this->render('careers', [
-                    'sectors' => $sectors
+                    'sectors' => $sectors,
+                    'model' => $model
         ]);
+    }
+
+    public function Upload($model, $file) {
+        if (!is_dir(\Yii::$app->basePath . '/../uploads/cv/' . $model->id . '/')) {
+            mkdir(\Yii::$app->basePath . '/../uploads/cv/' . $model->id . '/');
+            chmod(\Yii::$app->basePath . '/../uploads/cv/' . $model->id . '/', 0777);
+        }
+        $file->saveAs(Yii::$app->basePath . '/../uploads/cv/' . $model->id . '/cv.' . $file->extension);
+        return TRUE;
     }
 
     public function actionSubscribeMail() {

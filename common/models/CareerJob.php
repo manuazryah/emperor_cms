@@ -17,35 +17,33 @@ use Yii;
  * @property string $DOC
  * @property int $status
  */
-class CareerJob extends \yii\db\ActiveRecord
-{
+class CareerJob extends \yii\db\ActiveRecord {
+
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'career_job';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['name', 'email', 'mobile', 'cv'], 'required'],
+            [['name', 'email', 'mobile'], 'required'],
             [['career_id', 'status'], 'integer'],
             [['DOC'], 'safe'],
             [['name', 'email', 'reference'], 'string', 'max' => 200],
             [['mobile'], 'string', 'max' => 20],
+            [['cv'], 'file', 'extensions' => 'pdf, docx, doc'],
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'career_id' => 'Career ID',
@@ -58,4 +56,5 @@ class CareerJob extends \yii\db\ActiveRecord
             'status' => 'Status',
         ];
     }
+
 }
