@@ -46,7 +46,7 @@ class Sectors extends \yii\db\ActiveRecord
             [['CB', 'UB', 'status'], 'integer'],
             [['DOC', 'DOU'], 'safe'],
             [['name', 'main_head'], 'string', 'max' => 200],
-            [['small_image', 'main_image', 'banner_image'], 'required', 'on' => 'create'],
+            [['small_image', 'banner_image'], 'required', 'on' => 'create'],
 //            [['small_image', 'main_image', 'banner_image'], 'string', 'max' => 20],
         ];
     }

@@ -57,7 +57,7 @@ $contact_data = common\models\ContactInfo::findOne(1);
 
                             <div class="pull-left logo-outer">
                                 <div class="logo">
-                                    <a href="index.php"><img src="<?= Yii::$app->homeUrl; ?>images/logo.png" alt="Equilibriom Logo" title="Equilibrium"></a>
+                                    <a href="<?= Yii::$app->homeUrl; ?>"><img src="<?= Yii::$app->homeUrl; ?>images/logo.png" alt="Equilibriom Logo" title="Equilibrium"></a>
                                 </div>
                             </div>
 
@@ -73,7 +73,7 @@ $contact_data = common\models\ContactInfo::findOne(1);
                     <div class="auto-container clearfix">
                         <!--Logo-->
                         <div class="logo pull-left">
-                            <a href="index.php" class="img-responsive"><img src="<?= Yii::$app->homeUrl; ?>images/logo-small.png" alt="Equilibrium Logo" title="Equilibrium Logo"></a>
+                            <a href="<?= Yii::$app->homeUrl; ?>" class="img-responsive"><img src="<?= Yii::$app->homeUrl; ?>images/logo-small.png" alt="Equilibrium Logo" title="Equilibrium Logo"></a>
                         </div>
 
                         <!--Right Col-->
