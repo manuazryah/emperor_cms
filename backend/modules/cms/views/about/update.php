@@ -10,6 +10,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Abouts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
+<style>
+    textarea.form-control{
+        min-height: 220px;
+    }
+</style>
 <div class="row">
         <div class="col-md-12">
 

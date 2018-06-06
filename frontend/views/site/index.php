@@ -90,27 +90,6 @@ use common\models\Sectors;
                                         </div>
                                         <?= MenuHeaderWidget::widget() ?>
                                     </nav>
-                                    <!-- Main Menu End-->
-                                    <!--                            <div class="outer-box">
-                                    
-                                                                    Search Box
-                                                                    <div class="dropdown dropdown-outer">
-                                                                        <button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-search"></span></button>
-                                                                        <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
-                                                                            <li class="panel-outer">
-                                                                                <div class="form-container">
-                                                                                    <form action="" method="get">
-                                                                                        <div class="form-group">
-                                                                                            <input type="search" name="s" value="" placeholder="Search Here" required="">
-                                                                                            <button type="Subscribe" class="search-btn"><span class="fa fa-search"></span></button>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                    
-                                                                </div>-->
                                 </div>
                             </div>
                         </div>
@@ -244,7 +223,8 @@ use common\models\Sectors;
                                 <!--Content Column-->
                                 <div class="content-column col-md-6 col-sm-6 col-xs-12">
                                     <div class="text">
-                                        When you give to Our Industry, know your donation is making a difference whether you are supporting our signature Programs or our carefully curated list of gifts that professional. Over 24 years experience and knowledge international standards, technologicaly changes and industrial systems... <?= Html::a('Read more', ['/site/about'], ['class' => '']) ?></div>
+                                        <?= strlen($about_content->who_we_are_index) > 303 ? substr($about_content->who_we_are_index, 0, 300) . '...' : $about_content->who_we_are_index ?>
+                                        <?= Html::a('Read more', ['/site/about'], ['class' => '']) ?></div>
                                     <div class="image">
                                         <img src="<?= Yii::$app->homeUrl; ?>uploads/about/who_we_are_image.<?= $about_content->who_we_are_image ?>" alt="who_we_are" />
                                     </div>

@@ -22,12 +22,15 @@ use dosamigos\ckeditor\CKEditor;
                 if (!empty($model->who_we_are_image)) {
                     ?>
 
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/about/who_we_are_image.<?= $model->who_we_are_image; ?>"/>
+            <img class="img-responsive" src="<?= Yii::$app->homeUrl ?>../uploads/about/who_we_are_image.<?= $model->who_we_are_image; ?>"/>
                     <?php
                 }
             }
             ?>
 
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+            <?= $form->field($model, 'who_we_are_index')->textarea(['row' => 6]) ?>
         </div>
         <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>  
             <?=
@@ -49,7 +52,7 @@ use dosamigos\ckeditor\CKEditor;
                 if (!empty($model->our_mission_image)) {
                     ?>
 
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/about/our_mission_image.<?= $model->our_mission_image; ?>"/>
+            <img class="img-responsive" src="<?= Yii::$app->homeUrl ?>../uploads/about/our_mission_image.<?= $model->our_mission_image; ?>"/>
                     <?php
                 }
             }
@@ -65,7 +68,7 @@ use dosamigos\ckeditor\CKEditor;
                 if (!empty($model->our_vision_image)) {
                     ?>
 
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/about/our_vision_image.<?= $model->our_vision_image; ?>"/>
+                    <img class="img-responsive" src="<?= Yii::$app->homeUrl ?>../uploads/about/our_vision_image.<?= $model->our_vision_image; ?>"/>
                     <?php
                 }
             }

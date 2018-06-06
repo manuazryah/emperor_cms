@@ -46,7 +46,7 @@ class About extends \yii\db\ActiveRecord
             [['who_we_are', 'our_mission', 'our_vision', 'why_choose_us', 'chairman_message', 'our_core_values', 'our_certificates'], 'string'],
             [['status', 'CB', 'UB'], 'integer'],
             [['DOC', 'DOU'], 'safe'],
-            [['who_we_are', 'our_mission', 'our_vision', 'why_choose_us', 'our_core_values', 'our_certificates'], 'required'],
+            [['who_we_are', 'our_mission', 'our_vision', 'why_choose_us', 'our_core_values', 'our_certificates','who_we_are_index'], 'required'],
             [['who_we_are_image', 'our_mission_image', 'our_vision_image', 'why_choose_us_image', 'chairman_image', 'profile'], 'string', 'max' => 100],
             [['who_we_are_image', 'our_mission_image', 'our_vision_image', 'why_choose_us_image'], 'required', 'on' => 'create'],
             [['who_we_are_image', 'our_mission_image', 'our_vision_image', 'why_choose_us_image'], 'file', 'extensions' => 'jpg,png,jpeg'],
@@ -60,6 +60,7 @@ class About extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'who_we_are_index' => 'Who We Are for Index',
             'who_we_are' => 'Who We Are',
             'who_we_are_image' => 'Who We Are Image',
             'our_mission' => 'Our Mission',
