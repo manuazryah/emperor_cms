@@ -95,7 +95,7 @@ AppAsset::register($this);
                     </li>
                     <li>
                         <a href="">
-                             <i class="fa fa-wrench"></i>
+                            <i class="fa fa-wrench"></i>
                             <span class="title">Services</span>
                         </a>
                         <ul>
@@ -111,11 +111,11 @@ AppAsset::register($this);
                         <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-comments-o"></i> <span class="title">Testimonials</span>', ['/cms/testimonial/index'], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/index'], ['class' => 'title']) ?>
                     </li>
-                    <li>
-                        <?= Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
-                    </li>
+<!--                    <li>
+                        <?php // Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
+                    </li>-->
                 </ul>
 
                 <!-- notifications and other links -->
@@ -234,11 +234,11 @@ AppAsset::register($this);
                             <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-comments-o"></i> <span class="title">Testimonials</span>', ['/cms/testimonial/index'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/index'], ['class' => 'title']) ?>
                         </li>
-                        <li>
-                            <?= Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
-                        </li>
+<!--                        <li>
+                            <?php // Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
+                        </li>-->
                     </ul>
 
                 </div>
