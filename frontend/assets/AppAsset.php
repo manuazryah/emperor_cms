@@ -40,6 +40,7 @@ class AppAsset extends AssetBundle
         'js/wow.js',
         'js/map-script.js',
         'js/script.js',
+        'js/careers.js',
         'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.21/js/lightgallery-all.min.js',
         'https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js',
         'https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.js',

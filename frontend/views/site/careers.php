@@ -2,6 +2,7 @@
 /* @var $this yii\web\View */
 
 use common\components\MenuHeaderWidget;
+use common\models\Careers;
 ?>
 
 <!--Page Title-->
@@ -59,11 +60,6 @@ use common\components\MenuHeaderWidget;
                                                         foreach ($sectors as $sector) {
                                                             ?>
                                                             <li class=""><button type="button" class="button" data-filter=".Sector_<?= $i ?>"><?= $sector->name ?> </button></li>
-                                                            <!--                                                            <li class=""><button type="button" class="button" data-filter=".Railway ">Petrochemical</button></li>
-                                                                                                                        <li class=""><button type="button" class="button" data-filter=".Civil-Engineering">Power & Energy</button></li>
-                                                                                                                        <li class=""><button type="button" class="button" data-filter=".Nuclear-Energy">Infrastructure & products</button></li>
-                                                                                                                        <li class=""><button type="button" class="button" data-filter=".Construction-Management">RPS</button></li>
-                                                                                                                        <li class=""><button type="button" class="button" data-filter=".Petroleum-Engineering">Corporate Governce,Sustainibility and Strategic Management</button></li>-->
                                                             <?php
                                                             $i++;
                                                         }
@@ -120,30 +116,55 @@ use common\components\MenuHeaderWidget;
                                                 $i = 0;
                                                 foreach ($sectors as $sector) {
                                                     ?>
-                                                    <div class="gallery-item revGallery-anchor Sector_<?= $i?>">
+                                                    <div class="gallery-item revGallery-anchor Sector_<?= $i ?>">
                                                         <div class="job_post_main_wrapper">
-                                                            <div class="row">
-                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                                    <div class="job_post_side_img">
-                                                                        <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
-                                                                    </div>
-                                                                    <div class="job_post_right_cont">
-                                                                        <h4>Senior <?= $i?></h4>
-                                                                        <!--<h4>Senior Reservoir Enginer(1 - 2 Yrs Exp.)</h4>-->
-                                                                        <p>Webstrot Technology Pvt. Ltd.</p>
-                                                                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
+                                                            <?php
+                                                            $careers = Careers::find()->where(['sector_id' => $sector->id, 'status' => 1])->all();
+                                                            if ($careers) {
+                                                                foreach ($careers as $career) {
+                                                                    ?>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                            <div class="job_post_side_img">
+                                                                                <img src="<?= yii::$app->homeUrl . 'uploads/careers/' . $career->id . '/image.' . $career->image; ?>" alt="post_img">
+                                                                            </div>
+                                                                            <div class="job_post_right_cont">
+                                                                                <h4><?= $career->job_title ?></h4>
+                                                                                <!--<h4>Senior Reservoir Enginer(1 - 2 Yrs Exp.)</h4>-->
+                                                                                <p><?= $career->company_name ?>.</p>
+                                                                                <span><?= $career->description ?> </span>
 
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                            <div class="job_post_right_btn_wrapper">
+                                                                                <ul>
+                                                                                    <li class="post-button"><a>View More</a></li>
+                                                                                    <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                    <div class="job_post_right_btn_wrapper">
-                                                                        <ul>
-                                                                            <li class="post-button"><a>View More</a></li>
-                                                                            <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
-                                                                        </ul>
+                                                                <?php }
+                                                                ?>
+                                                            <?php } else { ?>
+                                                                <div class="row">
+                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                        <div class="job_post_side_img">
+                                                                            <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
+                                                                        </div>
+                                                                        <div class="job_post_right_cont">
+                                                                            <h4>No Job is opening now!</h4>
+                                                                            <!--<h4>Senior Reservoir Enginer(1 - 2 Yrs Exp.)</h4>-->
+                                                                            <p></p>
+                                                                            <span> </span>
+
+                                                                        </div>
                                                                     </div>
+
                                                                 </div>
-                                                            </div>
+                                                            <?php }
+                                                            ?>
                                                         </div>
                                                     </div>	
                                                     <?php
@@ -151,126 +172,126 @@ use common\components\MenuHeaderWidget;
                                                 }
                                             }
                                             ?>
-<!--                                            <div class="gallery-item revGallery-anchor Railway">
-                                                <div class="job_post_main_wrapper">
-                                                    <div class="row">
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <div class="job_post_side_img">
-                                                                <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
-                                                            </div>
-                                                            <div class="job_post_right_cont">
-                                                                <h4>Senior Project Engineer</h4>
-                                                                <p>Webstrot Technology Pvt. Ltd.</p>
-                                                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="job_post_right_btn_wrapper">
-                                                                <ul>
-                                                                    <li class="post-button"><a>View More</a></li>
-                                                                    <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>	
-                                            <div class="gallery-item revGallery-anchor Oil-Gas-Engineering">
-                                                <div class="job_post_main_wrapper">
-                                                    <div class="row">
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <div class="job_post_side_img">
-                                                                <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
-                                                            </div>
-                                                            <div class="job_post_right_cont">
-                                                                <h4>Senior Project Coordinator</h4>
-                                                                <p>Webstrot Technology Pvt. Ltd.</p>
-                                                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="job_post_right_btn_wrapper">
-                                                                <ul>
-                                                                    <li class="post-button"><a>View More</a></li>
-                                                                    <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>	
-                                            <div class="gallery-item revGallery-anchor Civil-Engineering">
-                                                <div class="job_post_main_wrapper">
-                                                    <div class="row">
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <div class="job_post_side_img">
-                                                                <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
-                                                            </div>
-                                                            <div class="job_post_right_cont">
-                                                                <h4>Planning Engineer</h4>
-                                                                <p>Webstrot Technology Pvt. Ltd.</p>
-                                                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="job_post_right_btn_wrapper">
-                                                                <ul>
-                                                                    <li class="post-button"><a>View More</a></li>
-                                                                    <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>	
-                                            <div class="gallery-item revGallery-anchor Nuclear-Energy">
-                                                <div class="job_post_main_wrapper">
-                                                    <div class="row">
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <div class="job_post_side_img">
-                                                                <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
-                                                            </div>
-                                                            <div class="job_post_right_cont">
-                                                                <h4>Process Engineer</h4>
-                                                                <p>Webstrot Technology Pvt. Ltd.</p>
-                                                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="job_post_right_btn_wrapper">
-                                                                <ul>
-                                                                    <li class="post-button"><a>View More</a></li>
-                                                                    <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>	
-                                            <div class="gallery-item revGallery-anchor Construction-Management">
-                                                <div class="job_post_main_wrapper">
-                                                    <div class="row">
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <div class="job_post_side_img">
-                                                                <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
-                                                            </div>
-                                                            <div class="job_post_right_cont">
-                                                                <h4>Office Administrator</h4>
-                                                                <p>Webstrot Technology Pvt. Ltd.</p>
-                                                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="job_post_right_btn_wrapper">
-                                                                <ul>
-                                                                    <li class="post-button"><a>View More</a></li>
-                                                                    <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>	-->
+                                            <!--                                            <div class="gallery-item revGallery-anchor Railway">
+                                                                                            <div class="job_post_main_wrapper">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                                        <div class="job_post_side_img">
+                                                                                                            <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
+                                                                                                        </div>
+                                                                                                        <div class="job_post_right_cont">
+                                                                                                            <h4>Senior Project Engineer</h4>
+                                                                                                            <p>Webstrot Technology Pvt. Ltd.</p>
+                                                                                                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                                        <div class="job_post_right_btn_wrapper">
+                                                                                                            <ul>
+                                                                                                                <li class="post-button"><a>View More</a></li>
+                                                                                                                <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>	
+                                                                                        <div class="gallery-item revGallery-anchor Oil-Gas-Engineering">
+                                                                                            <div class="job_post_main_wrapper">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                                        <div class="job_post_side_img">
+                                                                                                            <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
+                                                                                                        </div>
+                                                                                                        <div class="job_post_right_cont">
+                                                                                                            <h4>Senior Project Coordinator</h4>
+                                                                                                            <p>Webstrot Technology Pvt. Ltd.</p>
+                                                                                                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                                        <div class="job_post_right_btn_wrapper">
+                                                                                                            <ul>
+                                                                                                                <li class="post-button"><a>View More</a></li>
+                                                                                                                <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>	
+                                                                                        <div class="gallery-item revGallery-anchor Civil-Engineering">
+                                                                                            <div class="job_post_main_wrapper">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                                        <div class="job_post_side_img">
+                                                                                                            <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
+                                                                                                        </div>
+                                                                                                        <div class="job_post_right_cont">
+                                                                                                            <h4>Planning Engineer</h4>
+                                                                                                            <p>Webstrot Technology Pvt. Ltd.</p>
+                                                                                                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                                        <div class="job_post_right_btn_wrapper">
+                                                                                                            <ul>
+                                                                                                                <li class="post-button"><a>View More</a></li>
+                                                                                                                <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>	
+                                                                                        <div class="gallery-item revGallery-anchor Nuclear-Energy">
+                                                                                            <div class="job_post_main_wrapper">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                                        <div class="job_post_side_img">
+                                                                                                            <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
+                                                                                                        </div>
+                                                                                                        <div class="job_post_right_cont">
+                                                                                                            <h4>Process Engineer</h4>
+                                                                                                            <p>Webstrot Technology Pvt. Ltd.</p>
+                                                                                                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                                        <div class="job_post_right_btn_wrapper">
+                                                                                                            <ul>
+                                                                                                                <li class="post-button"><a>View More</a></li>
+                                                                                                                <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>	
+                                                                                        <div class="gallery-item revGallery-anchor Construction-Management">
+                                                                                            <div class="job_post_main_wrapper">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                                        <div class="job_post_side_img">
+                                                                                                            <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
+                                                                                                        </div>
+                                                                                                        <div class="job_post_right_cont">
+                                                                                                            <h4>Office Administrator</h4>
+                                                                                                            <p>Webstrot Technology Pvt. Ltd.</p>
+                                                                                                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                                        <div class="job_post_right_btn_wrapper">
+                                                                                                            <ul>
+                                                                                                                <li class="post-button"><a>View More</a></li>
+                                                                                                                <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>	-->
                                         </div>
 
 
@@ -286,5 +307,3 @@ use common\components\MenuHeaderWidget;
         </div>
     </div>
 </section>
-
-<script type='text/javascript' src='<?= yii::$app->homeUrl?>js/careers.js'></script>

@@ -3,18 +3,22 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use common\models\Services;
 ?>
 <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12">
     <aside class="sidebar default-sidebar">
         <div id="bunch_servies-2" class="widget sidebar-widget widget_bunch_servies">
             <div class="sidebar-blog-category">
-                <?php $page_name = basename($_SERVER['PHP_SELF']); ?>
+                <?php $page_name = Yii::$app->getRequest()->getQueryParam('service'); ?>
                 <h5 class="title">Services</h5>
                 <ul class="blog-cat">
+                    <?php $sectors = Services::find()->where(['status' => 1])->all();
+                    foreach ($sectors as $sector) {
+                        ?>
+                        <li class="<?= $page_name == $sector->canonical_name ? 'active' : '' ?>"><a href="<?= Yii::$app->homeUrl . 'site/services?service=' . $sector->canonical_name . '#' . $sector->canonical_name; ?>"><?= $sector->title ?></a></li>
+
+                    <?php } ?>
                     <!-- Title -->
-                    <li class="<?= $page_name == 'services.php' ? 'active' : '' ?>"><a href="services.php#Service">Major Services</a></li>
-
-
                 </ul>
             </div>
             <!--Blog Category Widget-->

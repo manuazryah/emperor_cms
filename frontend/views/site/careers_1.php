@@ -267,4 +267,4 @@ use common\components\MenuHeaderWidget;
     </div>
 </section>
 
-<script type='text/javascript' src='js/careers.js'></script>
+<script type='text/javascript' src='<?= yii::$app->homeUrl?>js/careers.js'></script>

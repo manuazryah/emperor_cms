@@ -1,5 +1,4 @@
 <?php
-
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\ContactForm */
@@ -16,12 +15,12 @@ use common\models\Sectors;
                 <ul class="blog-cat">
                     <!-- Title -->
                     <?php
-                    $page_name = basename($_SERVER['PHP_SELF']);
+                    $page_name = Yii::$app->getRequest()->getQueryParam('sector');
                     $sectors = Sectors::find()->where(['status' => 1])->all();
                     foreach ($sectors as $sector) {
                         ?>
-                        <li class="<?= $page_name == 'Oil-Gas-Engineering.php' ? 'active' : '' ?>"><a href="<?= Yii::$app->homeUrl.'site/sectors?sector='.$sector->canonical_name.'#'.$sector->canonical_name; ?>"><?= $sector->name ?></a></li>
-                        
+                        <li class="<?= $page_name == $sector->canonical_name ? 'active' : '' ?>"><a href="<?= Yii::$app->homeUrl . 'site/sectors?sector=' . $sector->canonical_name . '#' . $sector->canonical_name; ?>"><?= $sector->name ?></a></li>
+
                     <?php } ?>
                 </ul>
             </div>
