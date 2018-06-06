@@ -16,7 +16,7 @@ use yii\helpers\Html;
             <?= Html::a('About Us', ['/site/about'], ['class' => 'hvr-underline-from-left1']) ?>
         </li>
         <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/sectors' ? 'current' : '' ?>">
-            <?= Html::a('Sectors', ['/site/sectors'], ['class' => 'hvr-underline-from-left1']) ?>
+            <?= Html::a('Sectors', ['/site/sectors?sector=oil-gas-engineering#oil-gas-engineering'], ['class' => 'hvr-underline-from-left1']) ?>
         </li>
         <li class="menu-item menu-item-type-post_type menu-item-object-page <?= $action == 'site/ervices' ? 'current' : '' ?>">
             <?= Html::a('Services', ['/site/services'], ['class' => 'hvr-underline-from-left1']) ?>

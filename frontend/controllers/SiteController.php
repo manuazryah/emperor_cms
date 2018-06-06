@@ -142,7 +142,10 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionCareers() {
-        return $this->render('careers');
+        $sectors = Sectors::find()->where(['status' => 1])->all();
+        return $this->render('careers', [
+                    'sectors' => $sectors
+        ]);
     }
 
 }

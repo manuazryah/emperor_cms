@@ -25,7 +25,7 @@ use common\components\MenuHeaderWidget;
                         </button>
                     </div>
 
-                    <?= MenuHeaderWidget::widget() ?>
+                     <?= MenuHeaderWidget::widget() ?>
                 </nav>
                 <!-- Main Menu End-->
             </div>
@@ -53,25 +53,15 @@ use common\components\MenuHeaderWidget;
                                                 <h5 class="title">Sectors</h5>
                                                 <ul class="blog-cat">
                                                     <li class=""><button type="button" class="button is-checked" data-filter="">All</button></li>
-                                                    <?php
-                                                    if ($sectors) {
-                                                        $i = 0;
-                                                        foreach ($sectors as $sector) {
-                                                            ?>
-                                                            <li class=""><button type="button" class="button" data-filter=".Sector_<?= $i ?>"><?= $sector->name ?> </button></li>
-                                                            <!--                                                            <li class=""><button type="button" class="button" data-filter=".Railway ">Petrochemical</button></li>
-                                                                                                                        <li class=""><button type="button" class="button" data-filter=".Civil-Engineering">Power & Energy</button></li>
-                                                                                                                        <li class=""><button type="button" class="button" data-filter=".Nuclear-Energy">Infrastructure & products</button></li>
-                                                                                                                        <li class=""><button type="button" class="button" data-filter=".Construction-Management">RPS</button></li>
-                                                                                                                        <li class=""><button type="button" class="button" data-filter=".Petroleum-Engineering">Corporate Governce,Sustainibility and Strategic Management</button></li>-->
-                                                            <?php
-                                                            $i++;
-                                                        }
-                                                    }
-                                                    ?>
+                                                    <li class=""><button type="button" class="button" data-filter=".Oil-Gas-Engineering">Oil & Gas</button></li>
+                                                    <li class=""><button type="button" class="button" data-filter=".Railway ">Petrochemical</button></li>
+                                                    <li class=""><button type="button" class="button" data-filter=".Civil-Engineering">Power & Energy</button></li>
+                                                    <li class=""><button type="button" class="button" data-filter=".Nuclear-Energy">Infrastructure & products</button></li>
+                                                    <li class=""><button type="button" class="button" data-filter=".Construction-Management">RPS</button></li>
+                                                    <li class=""><button type="button" class="button" data-filter=".Petroleum-Engineering">Corporate Governce,Sustainibility and Strategic Management</button></li>
                                                 </ul>
                                             </div>
-                                            <?php //include './includes/service_menu.php';    ?>
+                                            <?php //include './includes/service_menu.php'; ?>
                                         </div>
                                         <div id="bunch_brochures-2" class="widget sidebar-widget widget_bunch_brochures">
                                             <!--Brochure-->
@@ -115,43 +105,33 @@ use common\components\MenuHeaderWidget;
                                 <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12">
                                     <div class="solution-single">
                                         <div class=" nlg1" id="gallery1">
-                                            <?php
-                                            if ($sectors) {
-                                                $i = 0;
-                                                foreach ($sectors as $sector) {
-                                                    ?>
-                                                    <div class="gallery-item revGallery-anchor Sector_<?= $i?>">
-                                                        <div class="job_post_main_wrapper">
-                                                            <div class="row">
-                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                                    <div class="job_post_side_img">
-                                                                        <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
-                                                                    </div>
-                                                                    <div class="job_post_right_cont">
-                                                                        <h4>Senior <?= $i?></h4>
-                                                                        <!--<h4>Senior Reservoir Enginer(1 - 2 Yrs Exp.)</h4>-->
-                                                                        <p>Webstrot Technology Pvt. Ltd.</p>
-                                                                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                    <div class="job_post_right_btn_wrapper">
-                                                                        <ul>
-                                                                            <li class="post-button"><a>View More</a></li>
-                                                                            <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
+                                            <div class="gallery-item revGallery-anchor Petroleum-Engineering">
+                                                <div class="job_post_main_wrapper">
+                                                    <div class="row">
+                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                            <div class="job_post_side_img">
+                                                                <img src="<?= yii::$app->homeUrl; ?>images/Chairman1bg.jpg.png" alt="post_img">
+                                                            </div>
+                                                            <div class="job_post_right_cont">
+                                                                <h4>Senior Reservoir Engineer</h4>
+                                                                <!--<h4>Senior Reservoir Enginer(1 - 2 Yrs Exp.)</h4>-->
+                                                                <p>Webstrot Technology Pvt. Ltd.</p>
+                                                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry </span>
+                                                                
                                                             </div>
                                                         </div>
-                                                    </div>	
-                                                    <?php
-                                                    $i++;
-                                                }
-                                            }
-                                            ?>
-<!--                                            <div class="gallery-item revGallery-anchor Railway">
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="job_post_right_btn_wrapper">
+                                                                <ul>
+                                                                    <li class="post-button"><a>View More</a></li>
+                                                                    <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>	
+                                            <div class="gallery-item revGallery-anchor Railway">
                                                 <div class="job_post_main_wrapper">
                                                     <div class="row">
                                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -270,7 +250,7 @@ use common\components\MenuHeaderWidget;
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>	-->
+                                            </div>	
                                         </div>
 
 
@@ -287,4 +267,4 @@ use common\components\MenuHeaderWidget;
     </div>
 </section>
 
-<script type='text/javascript' src='<?= yii::$app->homeUrl?>js/careers.js'></script>
+<script type='text/javascript' src='js/careers.js'></script>
