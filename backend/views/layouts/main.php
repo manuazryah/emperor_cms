@@ -85,7 +85,7 @@ AppAsset::register($this);
                         <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">About Equilibrium</span>', ['/cms/about/update', 'id' => 1], ['class' => 'title']) ?>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-comment-o"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa fa-comment-o"></i> <span class="title">Chairman Message</span>', ['/chairmans/update','id'=>1], ['class' => 'title']) ?>
                     </li>
                     <li>
                         <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
@@ -103,7 +103,7 @@ AppAsset::register($this);
                                 <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
                             </li>
                             <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Business Association', ['/cms/business-association/update?id=1'], ['class' => 'title']) ?>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Business Association', ['/cms/business-association/update','id'=>1], ['class' => 'title']) ?>
                             </li>
                         </ul>
                     </li>
@@ -111,7 +111,7 @@ AppAsset::register($this);
                         <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/index'], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/update','id'=>1], ['class' => 'title']) ?>
                     </li>
 <!--                    <li>
                         <?php // Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
@@ -208,7 +208,7 @@ AppAsset::register($this);
                             <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">About Equilibrium</span>', ['/cms/about/update', 'id' => 1], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-comment-o"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-comment-o"></i> <span class="title">Chairman Message</span>', ['/chairmans/update','id'=>1], ['class' => 'title']) ?>
                         </li>
                         <li>
                             <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
@@ -226,7 +226,7 @@ AppAsset::register($this);
                                     <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
                                 </li>
                                 <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Business Association', ['/cms/business-association/update?id=1'], ['class' => 'title']) ?>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Business Association', ['/cms/business-association/update','id'=>1], ['class' => 'title']) ?>
                                 </li>
                             </ul>
                         </li>
@@ -234,7 +234,7 @@ AppAsset::register($this);
                             <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/index'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/update','id'=>1], ['class' => 'title']) ?>
                         </li>
 <!--                        <li>
                             <?php // Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
@@ -254,9 +254,7 @@ AppAsset::register($this);
 
                         <!-- Add your copyright text here -->
                         <div class="footer-text">
-                            &copy; 2014
-                            <strong>Xenon</strong>
-                            theme by <a href="http://laborator.co" target="_blank">Laborator</a> - <a href="http://themeforest.net/item/xenon-bootstrap-admin-theme/9059661?ref=Laborator" target="_blank">Purchase for only <strong>23$</strong></a>
+                            <strong>© 2018 Equilibrium. All Rights Reserve</strong>
                         </div>
 
 

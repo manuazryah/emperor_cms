@@ -33,8 +33,8 @@ class ContactInfo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['address', 'status', 'CB', 'UB'], 'integer'],
-            [['DOC', 'DOU'], 'safe'],
+            [['status', 'CB', 'UB'], 'integer'],
+            [['DOC', 'DOU','address'], 'safe'],
             [['address', 'phone','email'], 'required'],
             [['phone'], 'string', 'max' => 25],
             [['email'], 'string', 'max' => 100],

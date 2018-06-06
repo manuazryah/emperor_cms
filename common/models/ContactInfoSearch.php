@@ -18,8 +18,8 @@ class ContactInfoSearch extends ContactInfo
     public function rules()
     {
         return [
-            [['id', 'address', 'status', 'CB', 'UB'], 'integer'],
-            [['phone', 'email', 'DOC', 'DOU'], 'safe'],
+            [['id','status', 'CB', 'UB'], 'integer'],
+            [['phone', 'email', 'DOC', 'DOU','address'], 'safe'],
         ];
     }
 
