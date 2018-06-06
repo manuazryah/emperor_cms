@@ -1,6 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
 use common\components\MenuHeaderWidget;
 use common\models\Slider;
 use common\models\Chairmans;
@@ -242,9 +243,10 @@ use common\models\Sectors;
                             <div class="row clearfix">
                                 <!--Content Column-->
                                 <div class="content-column col-md-6 col-sm-6 col-xs-12">
-                                    <div class="text">When you give to Our Industry, know your donation is making a difference whether you are supporting our signature Programs or our carefully curated list of gifts that professional. Over 24 years experience and knowledge international standards, technologicaly changes and industrial systems... <a href="about.php#who">Read more</a></div>
+                                    <div class="text">
+                                        When you give to Our Industry, know your donation is making a difference whether you are supporting our signature Programs or our carefully curated list of gifts that professional. Over 24 years experience and knowledge international standards, technologicaly changes and industrial systems... <?= Html::a('Read more', ['/site/about'], ['class' => '']) ?></div>
                                     <div class="image">
-                                        <img src="<?= Yii::$app->homeUrl; ?>images/about.jpg" alt="" />
+                                        <img src="<?= Yii::$app->homeUrl; ?>uploads/about/who_we_are_image.<?= $about_content->who_we_are_image ?>" alt="who_we_are" />
                                     </div>
                                 </div>
                                 <!--Blocks Column-->
@@ -254,12 +256,13 @@ use common\models\Sectors;
                                         <div class="about-block col-md-6 col-sm-6 col-xs-6">
                                             <div class="inner-box">
                                                 <div class="image">
-                                                    <a href="#"><img src="<?= Yii::$app->homeUrl; ?>images/about-1.jpg" alt="" /></a>
+                                                    <a href=""> <img src="<?= Yii::$app->homeUrl; ?>uploads/about/our_mission_image.<?= $about_content->our_mission_image ?>" alt="our_mission"/></a>
                                                 </div>
                                                 <div class="lower-box">
                                                     <h3><a href="#">Our Mission</a></h3>
                                                     <div class="text">
-                                                        ‘Equilibrium Engineering Consultancy’ (EEC) will provide Technically Excellent, Cost Effective, Efficient, Innovative and Value...  <a href="about.php#mission">Read more</a>
+                                                        <?= strlen($about_content->our_mission) > 133 ? substr($about_content->our_mission, 0, 130) . '...' : $about_content->our_mission ?>
+                                                        <?= Html::a('Read more', ['/site/about'], ['class' => '']) ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -268,12 +271,13 @@ use common\models\Sectors;
                                         <div class="about-block col-md-6 col-sm-6 col-xs-6">
                                             <div class="inner-box">
                                                 <div class="image">
-                                                    <a href="#"><img src="<?= Yii::$app->homeUrl; ?>images/about-2.jpg" alt="" /></a>
+                                                    <a href=""><img src="<?= Yii::$app->homeUrl; ?>uploads/about/our_vision_image.<?= $about_content->our_vision_image ?>" alt="our_vision"/></a>
                                                 </div>
                                                 <div class="lower-box">
                                                     <h3><a href="#">Our Vision</a></h3>
                                                     <div class="text">
-                                                        EEC aspires to be recognized as a distinct, distinguished and globally competitive provider of Engineering Consultancy, Program...  <a href="about.php#vission">Read more</a>
+                                                        <?= strlen($about_content->our_vision) > 133 ? substr($about_content->our_vision, 0, 130) . '...' : $about_content->our_vision ?>
+                                                        <?= Html::a('Read more', ['/site/about'], ['class' => '']) ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -880,7 +884,6 @@ use common\models\Sectors;
                                             <div class="form-group">
                                                 <input type="hidden" id="" name="" value="">
                                                 <input type="email" name="email" value="" placeholder="Your email address" required>
-                                                <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.63);-webkit-transform:scale(0.63);transform-origin:0 0;-webkit-transform-origin:0 0;position: absolute;right: -75px;top: 1px;" data-sitekey="6LcjtVcUAAAAAMe_XLQ118yIBxc6VDUN9NB5xccl"></div>
                                                 <button type="submit" name="subscribe" class="theme-btn">Submit</button>
                                             </div>
                                         </form>
@@ -992,7 +995,7 @@ use common\models\Sectors;
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group text-right">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad0">
-                                                            <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6LcjtVcUAAAAAMe_XLQ118yIBxc6VDUN9NB5xccl"></div>
+                                                            <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6LfASkMUAAAAAKb0YThDF1KSdEFtkltDfiBI9_iI"></div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad0">
                                                             <input type="submit" name="Submit" value="Send Now" class="wpcf7-form-control wpcf7-Subscribe theme-btn btn-style-one" />

@@ -267,7 +267,7 @@ form .form-group .form-control{
     border-bottom: none;
 }
 .sidebar-menu {
-    width: 205px;
+    width: 225px;
     background: #395e9c;
     border-right: none;
 }
@@ -1329,13 +1329,13 @@ input[type=checkbox], input[type=radio] {
     margin-bottom: 20px;
     list-style: none;
     margin-bottom: 0;
-    background: #337359;
+    background: #395e9c;
 }
 }
 @media screen and (max-width: 768px){
 .navbar.horizontal-menu .navbar-inner .navbar-nav a {
     color: #ffffff;
-    border-bottom: 1px solid #3f9e78;
+    border-bottom: 1px solid #4574c7;
     text-decoration: none;
     display: block;
     padding: 13px 5px;
@@ -1344,7 +1344,7 @@ input[type=checkbox], input[type=radio] {
 @media screen and (max-width: 768px){
 .navbar.horizontal-menu .navbar-inner .navbar-nav a:hover {
     color: #fff;
-    background: #3d886a;
+    background: #4574c7;
 }
 }
 .navbar-inner .navbar-nav a:hover {

@@ -68,7 +68,10 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
-        return $this->render('index');
+        $about_content = \common\models\About::find()->where(['id' => 1])->one();
+        return $this->render('index', [
+                    'about_content' => $about_content
+        ]);
     }
 
     public function actionChairmansMessage() {
@@ -84,6 +87,7 @@ class SiteController extends Controller {
         $sectors = Sectors::find()->where(['status' => 1, 'canonical_name' => $sector])->one();
         return $this->render('sector', ['sectors' => $sectors]);
     }
+
     /**
      * Displays Services Page.
      *
@@ -124,15 +128,13 @@ class SiteController extends Controller {
     public function actionAbout() {
         $about_content = \common\models\About::find()->where(['id' => 1])->one();
         $chairmans_message = \common\models\Chairmans::find()->where(['id' => 1])->one();
-        $partners = \common\models\Partners::find()->where(['status'=>1])->all();
+        $partners = \common\models\Partners::find()->where(['status' => 1])->all();
         return $this->render('about', [
                     'about_content' => $about_content,
                     'chairmans_message' => $chairmans_message,
                     'partners' => $partners,
         ]);
     }
-
-
 
     /**
      * Displays careers Page.

@@ -38,6 +38,8 @@ use dosamigos\ckeditor\CKEditor;
             ?>
 
         </div>
+    </div>
+    <div class="row">
         <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
             <?= $form->field($model, 'our_mission_image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 250x160 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
             <?php
@@ -51,15 +53,6 @@ use dosamigos\ckeditor\CKEditor;
                     <?php
                 }
             }
-            ?>
-
-        </div>
-        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>
-            <?=
-            $form->field($model, 'our_mission', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
-                'options' => ['rows' => 2],
-                'preset' => 'custom',
-            ])
             ?>
 
         </div>
@@ -79,15 +72,17 @@ use dosamigos\ckeditor\CKEditor;
             ?>
 
         </div>
-        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'> 
-            <?=
-            $form->field($model, 'our_vision', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
-                'options' => ['rows' => 2],
-                'preset' => 'custom',
-            ])
-            ?>
+    </div>
+      <div class="row">
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
+             <?= $form->field($model, 'our_mission')->textarea(['row' => 6]) ?>
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'> 
+            <?= $form->field($model, 'our_vision')->textarea(['row' => 6]) ?>
 
         </div>
+      </div>
+      <div class="row">
         <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>
             <?= $form->field($model, 'why_choose_us_image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 910x621 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
             <?php
@@ -97,7 +92,7 @@ use dosamigos\ckeditor\CKEditor;
                 if (!empty($model->why_choose_us_image)) {
                     ?>
 
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/about/why_choose_us_image.<?= $model->why_choose_us_image; ?>" />
+            <img src="<?= Yii::$app->homeUrl ?>../uploads/about/why_choose_us_image.<?= $model->why_choose_us_image; ?>" style="height: 200px;width: 100%;"/>
                     <?php
                 }
             }

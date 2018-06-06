@@ -85,18 +85,20 @@ AppAsset::register($this);
                         <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">About Equilibrium</span>', ['/cms/about/update', 'id' => 1], ['class' => 'title']) ?>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa fa-comment-o"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
                     </li>
-
+                    <li>
+                        <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
+                    </li>
+                    <li>
+                        <?= Html::a('<i class="fa fa-industry"></i> <span class="title">Sectors</span>', ['/cms/sectors/index'], ['class' => 'title']) ?>
+                    </li>
                     <li>
                         <a href="">
-                            <i class="fa fa-ship"></i>
-                            <span class="title">CMS</span>
+                             <i class="fa fa-wrench"></i>
+                            <span class="title">Services</span>
                         </a>
                         <ul>
-                            <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
-                            </li>
                             <li>
                                 <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
                             </li>
@@ -106,30 +108,10 @@ AppAsset::register($this);
                         </ul>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-map-marker"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
-                    </li>
-                    <li>
-                        <?= Html::a('<i class="fa fa-map-marker"></i> <span class="title">Contact Address</span>', ['/cms/contact-address/index'], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
                         <?= Html::a('<i class="fa fa-comments-o"></i> <span class="title">Testimonials</span>', ['/cms/testimonial/index'], ['class' => 'title']) ?>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fa fa-bell-slash-o"></i>
-                            <span class="title">Terms & Conditions</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Car Package', ['/cms/terms-conditions/car-package'], ['class' => 'title']) ?>
-                            </li>
-                            <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Traveler Package', ['/cms/terms-conditions/traveler-package'], ['class' => 'title']) ?>
-                            </li>
-                            <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Boat Packages', ['/cms/terms-conditions/boat-package'], ['class' => 'title']) ?>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <?= Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
@@ -226,17 +208,20 @@ AppAsset::register($this);
                             <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">About Equilibrium</span>', ['/cms/about/update', 'id' => 1], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-comment-o"></i> <span class="title">Chairman Message</span>', ['/chairmans/update?id=1'], ['class' => 'title']) ?>
+                        </li>
+                        <li>
+                            <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
+                        </li>
+                        <li>
+                            <?= Html::a('<i class="fa fa-industry"></i> <span class="title">Sectors</span>', ['/cms/sectors/index'], ['class' => 'title']) ?>
                         </li>
                         <li>
                             <a href="">
-                                <i class="fa fa-ship"></i>
-                                <span class="title">CMS</span>
+                                <i class="fa fa-wrench"></i>
+                                <span class="title">Services</span>
                             </a>
                             <ul>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Sectors', ['/cms/sectors/index'], ['class' => 'title']) ?>
-                            </li>
                                 <li>
                                     <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
                                 </li>
@@ -245,31 +230,11 @@ AppAsset::register($this);
                                 </li>
                             </ul>
                         </li>
-                    <li>
-                        <?= Html::a('<i class="fa fa-map-marker"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
-                    </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-map-marker"></i> <span class="title">Contact Address</span>', ['/cms/contact-address/index'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
                         </li>
                         <li>
                             <?= Html::a('<i class="fa fa-comments-o"></i> <span class="title">Testimonials</span>', ['/cms/testimonial/index'], ['class' => 'title']) ?>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="fa fa-bell-slash-o"></i>
-                                <span class="title">Terms & Conditions</span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Car Package', ['/cms/terms-conditions/car-package'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Traveler Package', ['/cms/terms-conditions/traveler-package'], ['class' => 'title']) ?>
-                                </li>
-                                <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Boat Packages', ['/cms/terms-conditions/boat-package'], ['class' => 'title']) ?>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <?= Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
