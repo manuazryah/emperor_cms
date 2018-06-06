@@ -144,24 +144,24 @@ $contact_data = common\models\ContactInfo::findOne(1);
                                                 </div>
                                                 <div class="column col-md-6 col-sm-6 col-xs-12">
                                                     <div class="subscribe-form">
-                                                        <form method="post" action="mail/subscribe.php">
+                                                        <form method="post" id="subscribe-mail-1">
                                                             <div class="form-group">
                                                                 <input type="hidden" id="" name="" value="">
-                                                                <input type="email" name="email" value="" placeholder="Your email address" required="">
-                                                <button type="submit" name="subscribe" class="theme-btn">Submit</button>
+                                                                <input id="subscribe_email-1" type="email" name="subscribe_email1" value="" placeholder="Your email address" required="">
+                                                                <button type="submit" name="subscribe" class="theme-btn">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </section>
+                                    <!--End subscribe Section-->
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <!--End subscribe Section-->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                    </div>
+                </section>
                 <div class="clearfix"></div>
                 <!--Main Footer-->
                 <footer class="site-footer">
@@ -224,17 +224,13 @@ $contact_data = common\models\ContactInfo::findOne(1);
                                     <div class="footer-middle-sidebar">
                                         <div id="equlibrium_mailchimp_widget-2" class="widget equlibrium_mailchimp_widget">
                                             <h3 class="widget-title">For More Details</h3>
-                                            <form class="newsletter" id="" method="post">
+                                            <form class="newsletter" id="subscribe-mail-2" method="post">
                                                 <p class="zozo-mc-subtitle">Submit your email address here.</p>
                                                 <p class="mc-aknowlegement" id="zozo-mc-err2"></p>
-                                                <input type="hidden" name="" value="">
-                                                <input type="hidden" name="" value="">
-                                                <input type="hidden" name="" value="Success.">
-                                                <input type="hidden" name="" value="Failure.">
                                                 <div class="form-group" data-toggle="tooltip" data-placement="top" data-original-title="" title="">
-                                                    <input type="text" class="form-control zozo-mc-email" id="zozo-mc-email-2" placeholder="Email Address" name="">
+                                                    <input type="text" class="form-control zozo-mc-email" id="subscribe_email-2" placeholder="Email Address" name="" required>
                                                 </div>
-                                                <input class="zozo-mc btn btn-default btn-block" data-id="2" type="button" name="Sign up" value="Submit">
+                                                <button type="submit" name="subscribe" class="zozo-mc btn btn-default btn-block">Submit</button>
                                             </form>
                                         </div>
                                         <div id="text-3" class="widget widget_text">
@@ -263,7 +259,7 @@ $contact_data = common\models\ContactInfo::findOne(1);
                     </div> 
                 </footer>
                 <?php if ($action == 'site/index') { ?>
-                        </div>
+                </div>
             <?php }
             ?>
         </div>
@@ -322,3 +318,35 @@ $contact_data = common\models\ContactInfo::findOne(1);
 </div>
 <?php $this->endPage() ?>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+                                    jQuery(document).ready(function () {
+                                        jQuery('#subscribe-mail-1').on('submit', function (e) {
+                                            e.preventDefault();
+                                            var email = $('#subscribe_email-1').val();
+                                            jQuery.ajax({
+                                                type: 'POST',
+                                                cache: false,
+                                                async: false,
+                                                data: {email: email},
+                                                url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
+                                                success: function (data) {
+                                                    $('#subscribe_email-1').val('');
+                                                }
+                                            });
+                                        });
+                                        jQuery('#subscribe-mail-2').on('submit', function (e) {
+                                            e.preventDefault();
+                                            var email = $('#subscribe_email-2').val();
+                                            jQuery.ajax({
+                                                type: 'POST',
+                                                cache: false,
+                                                async: false,
+                                                data: {email: email},
+                                                url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
+                                                success: function (data) {
+                                                    $('#subscribe_email-2').val('');
+                                                }
+                                            });
+                                        });
+                                    });
+</script>

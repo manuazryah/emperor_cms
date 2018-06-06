@@ -24,10 +24,10 @@ class SiteController extends Controller {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'chairmans-message'],
+                'only' => ['logout', 'signup', 'chairmans-message', 'subscribe-mail'],
                 'rules' => [
                     [
-                        'actions' => ['signup', 'chairmans-message'],
+                        'actions' => ['signup', 'chairmans-message', 'subscribe-mail'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -142,11 +142,11 @@ class SiteController extends Controller {
     public function sendContactMail($model) {
 
         $subject = $model->subject;
-        $to = "manu@azryah.com";
+        $to = "info@eqec.ae";
         $message = $this->renderPartial('contact-mail', ['model' => $model,]);
         $headers = 'MIME-Version: 1.0' . "\r\n";
         $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
-                "From: no-replay@equilibrium.com";
+                "From: no-replay@eqec.ae";
         mail($to, $subject, $message, $headers);
     }
 
@@ -176,6 +176,21 @@ class SiteController extends Controller {
         return $this->render('careers', [
                     'sectors' => $sectors
         ]);
+    }
+
+    public function actionSubscribeMail() {
+        if (Yii::$app->request->isAjax) {
+            $email = $_POST['email'];
+            if (!empty($email)) {
+                $subject = 'Newsletter Subscription Enquiry From eqec.ae';
+                $to = "info@eqec.ae";
+                $message = $this->renderPartial('subscribe-mail', ['email' => $email,]);
+                $headers = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
+                        "From: no-replay@eqec.ae";
+                mail($to, $subject, $message, $headers);
+            }
+        }
     }
 
 }

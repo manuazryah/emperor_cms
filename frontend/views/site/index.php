@@ -367,10 +367,10 @@ use yii\bootstrap\ActiveForm;
                                 </div>
                                 <div class="column col-md-6 col-sm-6 col-xs-12">
                                     <div class="subscribe-form">
-                                        <form method="post" action="mail/subscribe.php">
+                                        <form method="post" id="subscribe-mail-3">
                                             <div class="form-group">
                                                 <input type="hidden" id="" name="" value="">
-                                                <input type="email" name="email" value="" placeholder="Your email address" required>
+                                                <input id="subscribe_email-3" type="email" name="email" value="" placeholder="Your email address" required>
                                                 <button type="submit" name="subscribe" class="theme-btn">Submit</button>
                                             </div>
                                         </form>
@@ -465,38 +465,38 @@ use yii\bootstrap\ActiveForm;
                                     <div class="default-form">
                                         <div role="form" class="wpcf7" id="wpcf7-f284-p285-o1" lang="en-US" dir="ltr">
                                             <div class="screen-reader-response"></div>
-                                           <?php
+                                            <?php
                                             $form = ActiveForm::begin(['id' => 'contact-form', 'options' => [
                                                             'class' => 'form-theme'
                                             ]]);
                                             ?>
-                                                <div class="row clearfix">
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap text-165"><input type="text" name="ContactForm[name]" value="" size="40" class="wpcf7-form-control wpcf7-text " required="" aria-required="true" aria-invalid="false" placeholder="Name" /></span>
+                                            <div class="row clearfix">
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                    <span class="wpcf7-form-control-wrap text-165"><input type="text" name="ContactForm[name]" value="" size="40" class="wpcf7-form-control wpcf7-text " required="" aria-required="true" aria-invalid="false" placeholder="Name" /></span>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                    <span class="wpcf7-form-control-wrap email-857"><input type="email" name="ContactForm[email]" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" required="" aria-required="true" aria-invalid="false" placeholder="Email" /></span>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                    <span class="wpcf7-form-control-wrap text-165"><input type="text" name="ContactForm[phone]" value="" size="40" class="wpcf7-form-control wpcf7-text " required="" aria-required="true" aria-invalid="false" placeholder="Phone" /></span>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                    <span class="wpcf7-form-control-wrap email-857"><input type="text" name="ContactForm[subject]" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" required="" aria-required="true" aria-invalid="false" placeholder="Subject" /></span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                                    <span class="wpcf7-form-control-wrap textarea-59"><textarea name="ContactForm[message]" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Massage"></textarea></span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group text-right">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad0">
+                                                        <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6LeqjF0UAAAAAP4bdtEuNVjfWrrDAnTrCQObEh13"></div>
                                                     </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap email-857"><input type="email" name="ContactForm[email]" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" required="" aria-required="true" aria-invalid="false" placeholder="Email" /></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap text-165"><input type="text" name="ContactForm[phone]" value="" size="40" class="wpcf7-form-control wpcf7-text " required="" aria-required="true" aria-invalid="false" placeholder="Phone" /></span>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap email-857"><input type="text" name="ContactForm[subject]" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" required="" aria-required="true" aria-invalid="false" placeholder="Subject" /></span>
-                                                    </div>
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap textarea-59"><textarea name="ContactForm[message]" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Massage"></textarea></span>
-                                                    </div>
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group text-right">
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad0">
-                                                            <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6LeqjF0UAAAAAP4bdtEuNVjfWrrDAnTrCQObEh13"></div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad0">
-                                                             <?= Html::submitButton('Send Now', ['class' => 'wpcf7-form-control wpcf7-Subscribe theme-btn btn-style-one', 'name' => 'Submit']) ?>
-                                                        </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad0">
+                                                        <?= Html::submitButton('Send Now', ['class' => 'wpcf7-form-control wpcf7-Subscribe theme-btn btn-style-one', 'name' => 'Submit']) ?>
                                                     </div>
                                                 </div>
-                                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                             <?php ActiveForm::end(); ?>
+                                            </div>
+                                            <div class="wpcf7-response-output wpcf7-display-none"></div>
+                                            <?php ActiveForm::end(); ?>
                                         </div>
                                     </div>
                                     <!--End Default Form -->
@@ -524,6 +524,24 @@ use yii\bootstrap\ActiveForm;
                     jQuery("#recaptcha").after("<div class='validation' style='color:#c54040;position: absolute;top: 55px;font-size: 12px;'>Please verify that you are not a robot</div>");
                 }
             }
+        });
+    });
+</script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery('#subscribe-mail-3').on('submit', function (e) {
+            e.preventDefault();
+            var email = $('#subscribe_email-3').val();
+            jQuery.ajax({
+                type: 'POST',
+                cache: false,
+                async: false,
+                data: {email: email},
+                url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
+                success: function (data) {
+                    $('#subscribe_email-3').val('');
+                }
+            });
         });
     });
 </script>
