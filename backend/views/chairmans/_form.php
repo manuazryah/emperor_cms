@@ -18,7 +18,7 @@ use dosamigos\ckeditor\CKEditor;
 
         </div>
         <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>   
-             <?= $form->field($model, 'image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 468x350 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
+            <?= $form->field($model, 'image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 468x350 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
             <?php
             if ($model->isNewRecord)
                 echo "";
@@ -50,13 +50,13 @@ use dosamigos\ckeditor\CKEditor;
         </div>
     </div>
     <div class="row">
-        <div class='col-md-10 col-sm-6 col-xs-12 left_padd'>    
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'>    
             <?= $form->field($model, 'short_content')->textarea(['maxlength' => true]) ?>
 
         </div>
     </div>
     <div class="row">
-        <div class='col-md-10 col-sm-6 col-xs-12 left_padd'> 
+        <div class='col-md-12 col-sm-12 col-xs-12 left_padd'> 
             <?=
             $form->field($model, 'content', ['options' => ['class' => 'form-group']])->widget(CKEditor::className(), [
                 'options' => ['rows' => 2],
@@ -66,13 +66,13 @@ use dosamigos\ckeditor\CKEditor;
 
         </div>
     </div>
-
-    <div class='col-md-2 col-sm-6 col-xs-12' style="float:right;">
-        <div class="form-group" style="float: right;">
-            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'margin-top: 18px; height: 36px; width:100px;']) ?>
+    <div class="row">
+        <div class='col-md-12 col-sm-12 col-xs-12'>
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-success', 'style' => 'float:right;']) ?>
+            </div>
         </div>
     </div>
-
     <?php ActiveForm::end(); ?>
 
 </div>
