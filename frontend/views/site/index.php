@@ -6,6 +6,7 @@ use common\components\MenuHeaderWidget;
 use common\models\Slider;
 use common\models\Chairmans;
 use common\models\Sectors;
+use yii\bootstrap\ActiveForm;
 ?>
 <div class="kc_clfw"></div>
 <section class="kc-elm kc-css-217831 kc_row">
@@ -18,12 +19,6 @@ use common\models\Sectors;
                         <section class="main-slider">
                             <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
 
-                                <!-- Indicators -->
-                                <!--                                <ol class="carousel-indicators">
-                                                                    <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
-                                                                    <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
-                                                                    <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
-                                                                </ol>-->
 
                                 <!-- Wrapper For Slides -->
                                 <div class="carousel-inner" role="listbox">
@@ -470,31 +465,38 @@ use common\models\Sectors;
                                     <div class="default-form">
                                         <div role="form" class="wpcf7" id="wpcf7-f284-p285-o1" lang="en-US" dir="ltr">
                                             <div class="screen-reader-response"></div>
-                                            <form action="mail/contact-mail.php" method="post" class="wpcf7-form" novalidate="novalidate">
+                                           <?php
+                                            $form = ActiveForm::begin(['id' => 'contact-form', 'options' => [
+                                                            'class' => 'form-theme'
+                                            ]]);
+                                            ?>
                                                 <div class="row clearfix">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap text-165"><input type="text" name="Name" value="" size="40" class="wpcf7-form-control wpcf7-text " required="" aria-required="true" aria-invalid="false" placeholder="Name" /></span>
+                                                        <span class="wpcf7-form-control-wrap text-165"><input type="text" name="ContactForm[name]" value="" size="40" class="wpcf7-form-control wpcf7-text " required="" aria-required="true" aria-invalid="false" placeholder="Name" /></span>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap email-857"><input type="email" name="Email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" required="" aria-required="true" aria-invalid="false" placeholder="Email" /></span>
+                                                        <span class="wpcf7-form-control-wrap email-857"><input type="email" name="ContactForm[email]" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" required="" aria-required="true" aria-invalid="false" placeholder="Email" /></span>
                                                     </div>
-                                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap text-166"><input type="text" name="Subject" value="" size="40" class="wpcf7-form-control wpcf7-text" required="" aria-invalid="false" placeholder="Subject" /></span>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                        <span class="wpcf7-form-control-wrap text-165"><input type="text" name="ContactForm[phone]" value="" size="40" class="wpcf7-form-control wpcf7-text " required="" aria-required="true" aria-invalid="false" placeholder="Phone" /></span>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                        <span class="wpcf7-form-control-wrap email-857"><input type="text" name="ContactForm[subject]" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" required="" aria-required="true" aria-invalid="false" placeholder="Subject" /></span>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
-                                                        <span class="wpcf7-form-control-wrap textarea-59"><textarea name="Message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Massage"></textarea></span>
+                                                        <span class="wpcf7-form-control-wrap textarea-59"><textarea name="ContactForm[message]" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Massage"></textarea></span>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group text-right">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad0">
-                                                            <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6LfASkMUAAAAAKb0YThDF1KSdEFtkltDfiBI9_iI"></div>
+                                                            <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6LeqjF0UAAAAAP4bdtEuNVjfWrrDAnTrCQObEh13"></div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pad0">
-                                                            <input type="submit" name="Submit" value="Send Now" class="wpcf7-form-control wpcf7-Subscribe theme-btn btn-style-one" />
+                                                             <?= Html::submitButton('Send Now', ['class' => 'wpcf7-form-control wpcf7-Subscribe theme-btn btn-style-one', 'name' => 'Submit']) ?>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                            </form>
+                                             <?php ActiveForm::end(); ?>
                                         </div>
                                     </div>
                                     <!--End Default Form -->
@@ -510,3 +512,18 @@ use common\models\Sectors;
     </div>
 </section>
 <div class="clearfix"></div>
+<script>
+    jQuery(document).ready(function () {
+        jQuery('#contact-form').on('submit', function (e) {
+            var res = grecaptcha.getResponse();
+            if (res == "" || res == undefined || res.length == 0)
+            {
+                e.preventDefault();
+                if (jQuery("#recaptcha").next(".validation").length == 0) // only add if not added
+                {
+                    jQuery("#recaptcha").after("<div class='validation' style='color:#c54040;position: absolute;top: 55px;font-size: 12px;'>Please verify that you are not a robot</div>");
+                }
+            }
+        });
+    });
+</script>

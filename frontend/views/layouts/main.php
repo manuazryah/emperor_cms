@@ -14,6 +14,7 @@ $contact_data = common\models\ContactInfo::findOne(1);
 <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
+        <link rel="shortcut icon" href="<?= yii::$app->homeUrl; ?>images/fav.png" type="image/png" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
@@ -253,23 +254,9 @@ $contact_data = common\models\ContactInfo::findOne(1);
                                 <div class="col-md-12">
                                     <ul class="footer-bottom-items nav pull-left">
                                         <li class="nav-item">
-                                            <div class="nav-item-inner"> © Copyright 2018. All Rights Reserved.</div>
+                                            <div class="nav-item-inner"> © 2018 Equilibrium. All Rights Reserved.</div>
                                         </li>
                                     </ul>
-                                    <!--                    <ul class="footer-bottom-items nav pull-right">
-                                                            <li class="nav-item">
-                                                                <div class="nav-item-inner">
-                                                                    <div class="menu-footer-menu-container">
-                                                                        <ul id="menu-footer-menu" class="footer-menu">
-                                                                            <li id="menu-item-1153" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1153"><a href="#">Home</a></li>
-                                                                            <li id="menu-item-1154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1154"><a href="#">Services</a></li>
-                                                                            <li id="menu-item-1155" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1155"><a href="#">Privacy Policy</a></li>
-                                                                            <li id="menu-item-1156" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1156"><a href="#">Terms &amp; Condition</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>-->
                                 </div>
                             </div>
                         </div>

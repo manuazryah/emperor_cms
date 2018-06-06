@@ -70,6 +70,18 @@ class SiteController extends Controller {
     public function actionIndex() {
         $about_content = \common\models\About::find()->where(['id' => 1])->one();
         $contact_info = \common\models\ContactInfo::find()->where(['id' => 1])->one();
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if (isset($_POST['g-recaptcha-response']))
+                $captcha = $_POST['g-recaptcha-response'];
+            if ($captcha) {
+                $model->date = date('Y-m-d');
+                if ($model->save()) {
+                    $this->sendContactMail($model);
+                }
+            }
+            return $this->refresh();
+        }
         return $this->render('index', [
                     'about_content' => $about_content,
                     'contact_info' => $contact_info
@@ -129,53 +141,9 @@ class SiteController extends Controller {
      */
     public function sendContactMail($model) {
 
-        $subject = "Enquiry From Equilibrium";
+        $subject = $model->subject;
         $to = "manu@azryah.com";
-
-        $message = "<html>
-<head>
-
-</head>
-<body>
-<p><b>Enquiry Received From Website</b></p>
-<table>
-<tr>
-<th>Name</th>
-<th>:-</th>
-
-<td>" . $model->name . "</td>
-</tr>
-
-<tr>
-<tr>
-<th>Email Id</th>
-<th>:-</th>
-
-<td>" . $model->email . "</td>
-</tr>
-
-<tr>
-
-<th>Phone</th>
-<th>:-</th>
-<td>" . $model->phone . "</td>
-</tr>
-<tr>
-
-<th>Reason for Contact</th>
-<th>:-</th>
-<td>" . $model->message . "</td>
-</tr>
-<tr>
-
-
-<tr>
-
-
-</table>
-</body>
-</html>
-";
+        $message = $this->renderPartial('contact-mail', ['model' => $model,]);
         $headers = 'MIME-Version: 1.0' . "\r\n";
         $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
                 "From: no-replay@equilibrium.com";
