@@ -32,10 +32,11 @@ class CareerJob extends \yii\db\ActiveRecord {
     public function rules() {
         return [
             [['name', 'email', 'mobile'], 'required'],
-            [['career_id', 'status'], 'integer'],
+            [['status'], 'integer'],
             [['DOC'], 'safe'],
             [['name', 'email', 'reference'], 'string', 'max' => 200],
             [['mobile'], 'string', 'max' => 20],
+            [['career_id'], 'string'],
             [['cv'], 'file', 'extensions' => 'pdf, docx, doc'],
         ];
     }

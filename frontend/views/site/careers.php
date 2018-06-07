@@ -130,7 +130,7 @@ use yii\widgets\ActiveForm;
                                                                             <div class="job_post_right_btn_wrapper">
                                                                                 <ul>
                                                                                     <li class="post-button"><a>View More</a></li>
-                                                                                    <li class="post-button"><a role="button" data-toggle="modal" data-target="#modal-1354">Apply</a></li>
+                                                                                    <li class="post-button"><a role="button" data-toggle="modal" class="career" job_id="<?= yii::$app->EncryptDecrypt->Encrypt('encrypt', $career->id) ?>" data-target="#modal-1354">Apply</a></li>
                                                                                 </ul>
                                                                             </div>
                                                                         </div>
@@ -193,6 +193,8 @@ use yii\widgets\ActiveForm;
                     <!--<form action="" method="post" class="wpcf7-form" enctype="multipart/form-data" novalidate="novalidate">-->
 
                     <div class="form-group"><span class="wpcf7-form-control-wrap name">
+
+                            <?= $form->field($model, 'career_id')->hiddenInput()->label(FALSE) ?>
                             <?= $form->field($model, 'name')->textInput(['placeholder' => 'Full Name', 'maxlength' => true])->label(FALSE) ?>
                         </span></div>
                     <div class="form-group"><span class="wpcf7-form-control-wrap email">
@@ -226,7 +228,7 @@ use yii\widgets\ActiveForm;
                                                 </span>
                                             </div>
                     /**************************/-->
-                    <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.63);-webkit-transform:scale(0.63);transform-origin:0 0;-webkit-transform-origin:0 0;position: absolute;right: -70px;bottom: 65px; margin-bottom: 15px;" data-sitekey="6LcjtVcUAAAAAMe_XLQ118yIBxc6VDUN9NB5xccl"></div>
+                    <div id="recaptcha" class="g-recaptcha" style="transform:scale(0.63);-webkit-transform:scale(0.63);transform-origin:0 0;-webkit-transform-origin:0 0;position: absolute;right: -70px;bottom: 65px; margin-bottom: 15px;" data-sitekey="6LeqjF0UAAAAAP4bdtEuNVjfWrrDAnTrCQObEh13"></div>
                     <p><input type="submit" value="Apply" class="wpcf7-form-control wpcf7-submit btn btn-block btn-warning btn-style-three"><span class="ajax-loader"></span></p>
                     <div class="wpcf7-response-output wpcf7-display-none"></div>
                     <!--</form>-->
@@ -236,3 +238,11 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 </div>
+<script>
+    $('document').ready(function () {
+        $('.career').click(function () {
+            var job = $(this).attr('job_id');
+            $('#careerjob-career_id').val(job);
+        });
+    });
+</script>

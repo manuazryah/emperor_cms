@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                             <img src="<?= Yii::$app->homeUrl.'uploads/sectors/'.$sectors->id.'/small/image.'.$sectors->small_image; ?>" alt="" />
                                                         </div>
                                                     </div>
-                                                    <div class="column col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="column col-md-6 col-sm-6 col-xs-12 equilibrium_features">
                                                         <h3>Equilibrium's Features</h3>
                                                         <?= $sectors->features?>
                                                     </div>

@@ -41,7 +41,7 @@ class CareerJobSearch extends CareerJob
      */
     public function search($params)
     {
-        $query = CareerJob::find();
+        $query = CareerJob::find()->orderBy(['id' => SORT_DESC]);
 
         // add conditions that should always apply here
 

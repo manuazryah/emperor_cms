@@ -14,6 +14,17 @@ use yii\web\UploadedFile;
  * PartnersController implements the CRUD actions for Partners model.
  */
 class PartnersController extends Controller {
+    
+    public function beforeAction($action) {
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+        if (Yii::$app->user->isGuest) {
+            $this->redirect(['/site/index']);
+            return false;
+        }
+        return true;
+    }
 
     /**
      * @inheritdoc

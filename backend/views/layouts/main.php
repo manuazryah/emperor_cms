@@ -55,7 +55,7 @@ AppAsset::register($this);
 
                 <ul class="navbar-nav">
                     <li>
-                        <?= Html::a('<i class="fa-home"></i> <span class="title">Home</span>', ['/site/home'], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa-home"></i> <span class="title">Home</span>', ['/site/index'], ['class' => 'title']) ?>
                     </li>
                     <?php
                     if (Yii::$app->session['post']['admin'] == 1) {
@@ -109,6 +109,9 @@ AppAsset::register($this);
                     </li>
                     <li>
                         <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
+                    </li>
+                    <li>
+                        <?= Html::a('<i class="fa fa-suitcase"></i> <span class="title">Applied Jobs</span>', ['/career-job/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
                         <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/update','id'=>1], ['class' => 'title']) ?>
@@ -178,7 +181,7 @@ AppAsset::register($this);
 
                     <ul id="main-menu" class="main-menu">
                         <li>
-                            <?= Html::a('<i class="fa-home"></i> <span class="title">Home</span>', ['/site/home'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa-home"></i> <span class="title">Home</span>', ['/site/index'], ['class' => 'title']) ?>
                         </li>
                         <?php
                         if (Yii::$app->session['post']['admin'] == 1) {
@@ -233,6 +236,9 @@ AppAsset::register($this);
                         <li>
                             <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
                         </li>
+                    <li>
+                        <?= Html::a('<i class="fa fa-suitcase"></i> <span class="title">Applied Jobs</span>', ['/career-job/index'], ['class' => 'title']) ?>
+                    </li>
                         <li>
                             <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/update','id'=>1], ['class' => 'title']) ?>
                         </li>

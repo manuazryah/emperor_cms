@@ -14,6 +14,17 @@ use yii\web\UploadedFile;
  * BanerImagesController implements the CRUD actions for BanerImages model.
  */
 class BanerImagesController extends Controller {
+    
+    public function beforeAction($action) {
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+        if (Yii::$app->user->isGuest) {
+            $this->redirect(['/site/index']);
+            return false;
+        }
+        return true;
+    }
 
     /**
      * @inheritdoc

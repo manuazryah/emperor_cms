@@ -178,10 +178,9 @@ class SiteController extends Controller {
         $model = new CareerJob;
         $sectors = Sectors::find()->where(['status' => 1])->all();
         if ($model->load(Yii::$app->request->post())) {
-//           echo '<pre>';           print_r($_FILES["cv"]);exit;
             $cv = UploadedFile::getInstance($model, 'cv');
             $model->cv = $cv->extension;
-            $model->career_id = 1;
+            $model->career_id = yii::$app->EncryptDecrypt->Encrypt('decrypt', $model->career_id);
             if ($model->validate() && $model->save()) {
 
                 if (!empty($cv)) {
