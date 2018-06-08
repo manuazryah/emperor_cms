@@ -69,28 +69,27 @@ use yii\bootstrap\ActiveForm;
 
                             </div>
                         </section>
-                        <div class="header-lower">
+                    </div>
+                    <!--End Main Slider-->
+                    <div class="header-lower index">
 
-                            <div class="auto-container">
-                                <div class="nav-outer clearfix">
-                                    <!-- Main Menu -->
-                                    <nav class="main-menu">
-                                        <div class="navbar-header">
-                                            <!-- Toggle Button -->
-                                            <button id="mobile-menu" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                            </button>
-                                        </div>
-                                        <?= MenuHeaderWidget::widget() ?>
-                                    </nav>
-                                </div>
+                        <div class="auto-container">
+                            <div class="nav-outer clearfix">
+                                <!-- Main Menu -->
+                                <nav class="main-menu">
+                                    <div class="navbar-header">
+                                        <!-- Toggle Button -->
+                                        <button id="mobile-menu" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <?= MenuHeaderWidget::widget() ?>
+                                </nav>
                             </div>
                         </div>
                     </div>
-                    <!--End Main Slider-->
-
                 </div>
             </div>
         </div>
@@ -543,5 +542,9 @@ use yii\bootstrap\ActiveForm;
                 }
             });
         });
+
+
+    }
     });
+
 </script>

@@ -22,9 +22,9 @@ $contact_data = common\models\ContactInfo::findOne(1);
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <?php $this->head() ?>
     </head>
+    <div class="loader"></div>
     <body class="home page-template page-template-tpl-king_composer page-template-tpl-king_composer-php page page-id-7 kingcomposer kc-css-system">
         <?php $this->beginBody() ?>
-
         <div class="page-wrapper">
             <header class="main-header">
 
@@ -285,10 +285,10 @@ $contact_data = common\models\ContactInfo::findOne(1);
                 success: function (data) {
                     var $data = JSON.parse(data);
                     if ($data.msg === 'success') {
-                        $('#subscribe_email-1').val('');
+                    $('#subscribe_email-1').val('');
                     } else {
                         $('.subscribe_email-1_error').html(email + ' already subscribed');
-                    }
+                }
                 }
             });
         });
@@ -306,5 +306,23 @@ $contact_data = common\models\ContactInfo::findOne(1);
                 }
             });
         });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".loader").fadeOut("slow");
+        function setHeight() {
+            windowHeight = $(window).innerHeight();
+            $('.item').css({
+                'height': $(this).height() - 50
+            });
+        }
+        ;
+        if ($(window).width() >= 767) {
+            setHeight();
+            $(window).resize(function () {
+                setHeight();
+            });
+        }
     });
 </script>

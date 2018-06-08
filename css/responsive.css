@@ -50,14 +50,17 @@
     .sticky-header{
         display: none;
     }
+    .index .nav-outer{
+        top: -50px;
+    }
     .nav-outer{
-        top: -60px;
+        top: 0px;
         position: absolute;
         width: 100%;
         right: 0;
     }
     .navbar-header{
-        background: #00000070;
+        background: none;
     }
     .services-block .inner-box .image{
         max-height: fit-content;
@@ -494,18 +497,19 @@
         width:100%;
         padding:13px 0px 14px;
         right:0px;
-        z-index:12;
+        padding-bottom: 2px;
     }
 
     .main-menu .navbar-header .navbar-toggle{
-        display:inline-block;
-        z-index:7;
-        top:-1px;
-        border:1px solid #264894;
-        float:none;
-        margin:0px 0px 0px 0px;
-        border-radius:0px;
-        background:#264894;
+        display: inline-block;
+        z-index: 5;
+        top: -5px;
+        right: 8%;
+        border: 1px solid #0c213c;
+        float: none;
+        margin: 0px 0px 0px 0px;
+        border-radius: 0px;
+        background: #0c213c;
     }
 
     .main-menu .navbar-header .navbar-toggle .icon-bar{
@@ -519,6 +523,7 @@
         background:#264894;
         border:1px solid #ffffff;
         border-top:none;
+        z-index: 5;
     }
 
     .main-menu .navbar-collapse > .navigation > li{
@@ -602,7 +607,7 @@
         padding:12px 15px !important;
         line-height:22px;
         color:#ffffff !important;
-        background:#264894;
+        background:#1d1d1d;
         text-align:left;
         min-height:0px;
         font-size:14px;
@@ -765,6 +770,7 @@
         margin:0 auto;
         display:block;
         margin-bottom:20px;
+        z-index: 90000;
     }
 
     .contact-section .social-icon-two{

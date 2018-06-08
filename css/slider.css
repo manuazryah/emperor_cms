@@ -323,12 +323,14 @@
 /*---------- MEDIA 480px ----------*/
 @media  (max-width: 768px) {
     .slide-text {
+        top: 55%;
         padding: 10px 50px;
     }
     .slide-text h1 {
-        font-size: 30px;
+        font-size: 20px;
         line-height: 40px;
         margin-bottom: 10px;
+        text-align: center;
     }
     .slide-text > p {
         font-size: 14px;
@@ -342,12 +344,14 @@
 }
 @media  (max-width: 480px) {
     .slide-text {
+        top: 55%;
         padding: 10px 30px;
     }
     .slide-text h1 {
         font-size: 20px;
         line-height: 25px;
         margin-bottom: 5px;
+        text-align: center;
     }
     .slide-text > p {
         font-size: 12px;
