@@ -187,7 +187,7 @@ class SiteController extends Controller {
                     $this->upload($model, $cv);
                 }
                 Yii::$app->session->setFlash('success', "New Careers added Successfully");
-                 $model = new CareerJob;
+                $model = new CareerJob;
             }
         }
         return $this->render('careers', [
@@ -209,13 +209,20 @@ class SiteController extends Controller {
         if (Yii::$app->request->isAjax) {
             $email = $_POST['email'];
             if (!empty($email)) {
-                $subject = 'Newsletter Subscription Enquiry From eqec.ae';
-                $to = "info@eqec.ae";
-                $message = $this->renderPartial('subscribe-mail', ['email' => $email,]);
-                $headers = 'MIME-Version: 1.0' . "\r\n";
-                $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
-                        "From: no-replay@eqec.ae";
-                mail($to, $subject, $message, $headers);
+                $model = new \common\models\EmailSubscription();
+                $model->email = $email;
+                if ($model->save()) {
+                    $subject = 'Newsletter Subscription Enquiry From eqec.ae';
+                    $to = "info@eqec.ae";
+                    $message = $this->renderPartial('subscribe-mail', ['email' => $email,]);
+                    $headers = 'MIME-Version: 1.0' . "\r\n";
+                    $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
+                            "From: no-replay@eqec.ae";
+                    mail($to, $subject, $message, $headers);
+                    echo json_encode(array('msg'=>'success'));
+                }else{
+                    echo json_encode(array('msg'=>'failed','error'=>'Email already used'));
+                }
             }
         }
     }

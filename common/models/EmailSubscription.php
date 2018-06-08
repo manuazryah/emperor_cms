@@ -31,6 +31,7 @@ class EmailSubscription extends \yii\db\ActiveRecord
             [['date'], 'safe'],
             [['status'], 'integer'],
             [['email'], 'string', 'max' => 100],
+            [['email'], 'unique'],
         ];
     }
 

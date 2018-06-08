@@ -149,6 +149,7 @@ $contact_data = common\models\ContactInfo::findOne(1);
                                                                 <input type="hidden" id="" name="" value="">
                                                                 <input id="subscribe_email-1" type="email" name="subscribe_email1" value="" placeholder="Your email address" required="">
                                                                 <button type="submit" name="subscribe" class="theme-btn">Submit</button>
+                                                                <span class="subscribe_email-1_error" style="color:red"></span>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -270,34 +271,40 @@ $contact_data = common\models\ContactInfo::findOne(1);
 <?php $this->endPage() ?>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
-                                    jQuery(document).ready(function () {
-                                        jQuery('#subscribe-mail-1').on('submit', function (e) {
-                                            e.preventDefault();
-                                            var email = $('#subscribe_email-1').val();
-                                            jQuery.ajax({
-                                                type: 'POST',
-                                                cache: false,
-                                                async: false,
-                                                data: {email: email},
-                                                url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
-                                                success: function (data) {
-                                                    $('#subscribe_email-1').val('');
-                                                }
-                                            });
-                                        });
-                                        jQuery('#subscribe-mail-2').on('submit', function (e) {
-                                            e.preventDefault();
-                                            var email = $('#subscribe_email-2').val();
-                                            jQuery.ajax({
-                                                type: 'POST',
-                                                cache: false,
-                                                async: false,
-                                                data: {email: email},
-                                                url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
-                                                success: function (data) {
-                                                    $('#subscribe_email-2').val('');
-                                                }
-                                            });
-                                        });
-                                    });
+    jQuery(document).ready(function () {
+        jQuery('#subscribe-mail-1').on('submit', function (e) {
+            e.preventDefault();
+            $('.subscribe_email-1_error').html('');
+            var email = $('#subscribe_email-1').val();
+            jQuery.ajax({
+                type: 'POST',
+                cache: false,
+                async: false,
+                data: {email: email},
+                url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
+                success: function (data) {
+                    var $data = JSON.parse(data);
+                    if ($data.msg === 'success') {
+                        $('#subscribe_email-1').val('');
+                    } else {
+                        $('.subscribe_email-1_error').html(email + ' already subscribed');
+                    }
+                }
+            });
+        });
+        jQuery('#subscribe-mail-2').on('submit', function (e) {
+            e.preventDefault();
+            var email = $('#subscribe_email-2').val();
+            jQuery.ajax({
+                type: 'POST',
+                cache: false,
+                async: false,
+                data: {email: email},
+                url: '<?= Yii::$app->homeUrl; ?>site/subscribe-mail',
+                success: function (data) {
+                    $('#subscribe_email-2').val('');
+                }
+            });
+        });
+    });
 </script>
