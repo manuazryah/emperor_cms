@@ -24,14 +24,18 @@ class SetValues extends Component {
 
 
         if (isset($model) && !Yii::$app->user->isGuest) {
+            
             if ($model->isNewRecord) {
                 $model->CB = Yii::$app->user->identity->id;
                 $model->DOC = date('Y-m-d');
             } else {
                 $model->UB = Yii::$app->user->identity->id;
             }
+            
             return TRUE;
         } else {
+            echo '0';
+            exit;
             return FALSE;
         }
     }

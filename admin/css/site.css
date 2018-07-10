@@ -1264,7 +1264,7 @@ input[type=checkbox], input[type=radio] {
     height: 50px;
 }
 .navbar.horizontal-menu {
-    height: 50px;
+    height: 60px;
 }
 .navbar.horizontal-menu.navbar-fixed-top+.page-container {
     margin-top: 50px;

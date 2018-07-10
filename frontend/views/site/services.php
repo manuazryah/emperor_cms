@@ -1,108 +1,68 @@
 <?php
 /* @var $this yii\web\View */
 
-use common\components\MenuHeaderWidget;
-use common\components\ServiceSidemenuWidget;
-use common\models\BusinessAssociation;
-$this->title = $services->title;
-$this->params['breadcrumbs'][] = $this->title;
+use yii\helpers\Html;
 ?>
-<!--Page Title-->
-<section id="banner" class="page-title services-page-banner" style="background-image:url(../uploads/services/<?= $services->id?>/banner_image/image.<?= $services->banner_image?>);">
-    <div class="auto-container">
-        <h1>Services</h1>
-        <div class="text"></div>
-        <!--<div class="text">lorem ipsum dolor sit amet</div>-->
-    </div>
-    <div class="header-lower">
-
-        <div class="auto-container">
-            <div class="nav-outer clearfix">
-                <!-- Main Menu -->
-                <nav class="main-menu">
-                    <div class="navbar-header">
-                        <!-- Toggle Button -->
-                        <button id="mobile-menu" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-
-                   <?= MenuHeaderWidget::widget() ?>
-                </nav>
-                <!-- Main Menu End-->
+<div class="page-banner-area about-banner">
+    <div class="container">
+        <div class="title-command-wrapper">
+            <h1 class="title">Services</h1>
+            <div class="breadcrumb-wrapper">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?= Yii::$app->homeUrl ?>">Home</a></li>
+                    <li class="breadcrumb-item"><a class="breadcrumb-active">SHIPS AGENCY SERVICES</a></li>
+                </ol>
             </div>
         </div>
     </div>
-</section>
-<!--End Page Title-->
+</div>
 
-<div class="kc_clfw"></div>
-<section class="kc-elm kc-css-351650 kc_row">
-    <div class="kc-row-container  kc-container">
-        <div class="kc-wrap-columns">
-            <div class="kc-elm kc-css-593335 kc_col-sm-12 kc_column kc_col-sm-12">
-                <div class="kc-col-container">
-                    <!--Sidebar Page Container-->
-                    <section id="Service"></section>
-                    <div class="sidebar-page-container">
-                        <div class="auto-container">
-                            <div class="row clearfix">
-                                <!--Sidebar Side-->
-                                <?= ServiceSidemenuWidget::widget() ?>
-
-
-                                <!--<div id="Oil-Gas-Engineering"></div>-->
-
-                                <!--Content Side-->
-                                <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                                    <div class="solution-single">
-                                        <div class="inner-box">
-                                            <div class="image">
-                                                <img src="<?= Yii::$app->homeUrl ?>uploads/services/<?= $services->id; ?>/main_image/image.<?= $services->main_image; ?>" alt="" />
-                                            </div>
-                                            <h2><?= $services->title?></h2>
-                                            <div class="text">
-                                                <?= $services->content?>
-                                                    </div>
-                                                </div>
-
-
-                                    </div> 
-                                </div>
-
+<div id="content" class="ptop70 service-page">
+    <div class="container">
+        <div class="image-gallery">
+            <!--            <div class="row">
+                            <div class="col-xl-12">
+                                <p class="text-center">Emperor Shipping Lines L.L.C Is One Of The Largest Shipping Agent In Uae And Professionally Managed Company With A Comprehensive Infrastructure And With An In-Depth Knowledge In Ships Agency, Clearing & Forwarding, Logistic And Transport Provider, Dedicated To Provide Quick, Quality And Cost Effective Solution To Its Client</p>
                             </div>
-                        </div>
+                        </div>-->
+        </div>
+        <br>
+        <div class="great-plan">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="sec-title text-center">
+                        <img width="40" height="18" src="images/icons/ship.png" class="img-fluid" alt="service">
+                        <h5><?= $services->name ?></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-image">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <img src="<?= Yii::$app->homeUrl ?>images/service-detail4.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <?= $services->content ?>
+<!--                        <p>Aliquam pulvinar pellentesque purus, nec condimentum nibh. Aenean dapibus iaculis odio id vestibulum. Nam at justo ante. Aliquam pulvinar pellentesque purus, nec condi nibh enean dapibus dapibus iaculis.</p>
+                        <ul class="list">
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Husbandry Services to Vessels at any UAE Ports And Anchorage</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Off shore support, Anchorage Services, OPL and Launch co ordination</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Crew Visa Processing , Clearance and Transportation</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Crew and Passenger Repatriation Assistance</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Crew and Passenger Transportation</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Visit or Transit visa for Crew and Passengers</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Air ticket and Hotel accommodation</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Medical assistance and Evacuation : On shore and Off shore</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">STS attendance: Providing mooring master, fenders, hoses etc</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Diving Support(Underwater cleaning, repair, video survey etc)</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Search and Recovery of Lost anchor and Chain etc</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Organize Ship Repair and Dry Docking</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Salvaging of Distressed Vessels</span></li>
+                            <li><i class="slz-icon fa fa-angle-right"></i><span class="text">Rig Clearance</span></li>
+                        </ul>-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-
-<section class="kc-elm kc-css-810793 kc_row core-values">
-    <div class="kc-row-container">
-        <div class="kc-wrap-columns">
-            <div class="kc-elm kc_col-sm-12 kc_column kc_col-sm-12">
-                <div class="kc-col-container">
-                    <div class="auto-container">
-                        <div class="kc-wrap-columns">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="sec-title">
-                                    <h2>BUSINESS ASSOCIATIONS</h2>
-                                </div>
-                            </div>
-                            <?php $business = BusinessAssociation::findOne(1);?>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <img src="<?= Yii::$app->homeUrl ?>uploads/business/<?= $business->id; ?>/image.<?= $business->image; ?>" alt="post_img" class="img-responsive">
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <?= $business->content;?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section>
+</div>

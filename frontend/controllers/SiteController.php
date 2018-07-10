@@ -8,17 +8,31 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\Sectors;
-use common\models\Services;
-use common\models\ContactForm;
 use app\models\UploadForm;
 use yii\web\UploadedFile;
-use common\models\CareerJob;
+use common\models\Slider;
+use common\models\HomeContent;
+use common\models\Ports;
+use common\models\About;
+use common\models\Gallery;
+use common\models\Download;
+use common\models\ContactForm;
+use common\models\PortPosition;
+use common\models\ContactAddress;
+use common\models\Services;
+use common\models\UsefulLinks;
+use common\models\HomePageService;
+use common\models\Contact;
 
 /**
  * Site controller
  */
 class SiteController extends Controller {
+
+    public function beforeAction($action) {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
 
     /**
      * {@inheritdoc}
@@ -71,138 +85,158 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
-        $about_content = \common\models\About::find()->where(['id' => 1])->one();
-        $contact_info = \common\models\ContactInfo::find()->where(['id' => 1])->one();
+        $sliders = Slider::find()->where(['status' => '1'])->all();
+        $about_content = HomeContent::findOne(1);
+        $emirates = Ports::find()->where(['status' => 1])->all();
+        $services = Services::find()->where(['status' => 1])->orderBy(['sort' => SORT_ASC])->all();
+        $home_services = HomePageService::find()->where(['status' => 1])->all();
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post())) {
-            if (isset($_POST['g-recaptcha-response']))
-                $captcha = $_POST['g-recaptcha-response'];
-            if ($captcha) {
-                $model->date = date('Y-m-d');
-                if ($model->save()) {
-                    $this->sendContactMail($model);
-                }
+            $model->date = date('Y-m-d');
+            if ($model->validate() && $model->save()) {
+                $this->sendContactMail($model);
+                return $this->refresh();
             }
-            return $this->refresh();
         }
         return $this->render('index', [
+                    'sliders' => $sliders,
                     'about_content' => $about_content,
-                    'contact_info' => $contact_info
+                    'emirates' => $emirates,
+                    'model' => $model,
+                    'services' => $services,
+                    'home_services' => $home_services,
         ]);
     }
 
-    public function actionChairmansMessage() {
-        return $this->render('chairmans');
+    public function actionAbout() {
+        $about = About::findOne(1);
+        return $this->render('abouts', [
+                    'about' => $about
+        ]);
     }
 
     /**
-     * Displays Sectors page.
+     * Displays Port position page.
      *
      * @return mixed
      */
-    public function actionSectors($sector) {
-        $sectors = Sectors::find()->where(['status' => 1, 'canonical_name' => $sector])->one();
-        return $this->render('sector', ['sectors' => $sectors]);
+    public function actionPortPosition() {
+        $port_position = PortPosition::find()->where(['status' => 1])->all();
+        return $this->render('port', [
+                    'port_position' => $port_position
+        ]);
     }
 
     /**
-     * Displays Services Page.
+     * Displays gallery page.
      *
      * @return mixed
      */
+    public function actionGallery() {
+        $galleries = Gallery::find()->where(['status' => 1])->all();
+        return $this->render('gallery', [
+                    'galleries' => $galleries
+        ]);
+    }
+
+    /**
+     * Displays Useful links page.
+     *
+     * @return mixed
+     */
+    public function actionUsefulLinks() {
+        $useful_links = UsefulLinks::find()->where(['status' => 1])->all();
+        return $this->render('links', [
+                    'useful_links' => $useful_links
+        ]);
+    }
+
+    public function actionPortsWeServe() {
+        $emirates = Ports::find()->where(['status' => 1])->all();
+        return $this->render('ports-we-serve', [
+                    'emirates' => $emirates,
+        ]);
+    }
+
+    /**
+     * Displays Download page.
+     *
+     * @return mixed
+     */
+    public function actionDownload() {
+        $downloads = Download::find()->where(['status' => 1])->all();
+        $useful_links = UsefulLinks::find()->where(['status' => 1])->all();
+        return $this->render('download', [
+                    'downloads' => $downloads,
+                    'useful_links' => $useful_links
+        ]);
+    }
+
+    public function actionContact() {
+        $contacts = ContactAddress::find()->where(['status' => 1])->all();
+        $contacts_content = Contact::findOne(1);
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post())) {
+            $model->date = date('Y-m-d');
+            if ($model->validate() && $model->save()) {
+                $this->sendContactMail($model);
+                return $this->refresh();
+            }
+        }
+        return $this->render('contacts', [
+                    'contact_address' => $contacts,
+                    'model' => $model,
+                    'contacts_content' => $contacts_content,
+        ]);
+    }
+
+    public function actionCareer() {
+        $career_content = \common\models\CareerContent::findOne(1);
+        $model = new \common\models\CareerApplications();
+        if ($model->load(Yii::$app->request->post())) {
+            $files = UploadedFile::getInstance($model, 'cv');
+            if (!empty($files)) {
+                $model->cv = $files->extension;
+            }
+            $model->DOC = date('Y-m-d');
+            if ($model->validate() && $model->save()) {
+                $path = Yii::$app->basePath . '/../uploads/career_cvs/' . $model->id;
+                if (!is_dir($path))
+                    mkdir($path);
+                if (!empty($files)) {
+                    $files->saveAs($path . '/cv.' . $files->extension);
+                }
+                $this->sendCareerMail($model);
+                return $this->refresh();
+            }
+        }
+        return $this->render('career', [
+                    'career_content' => $career_content,
+                    'model' => $model,
+        ]);
+    }
+
     public function actionServices($service) {
         $services = Services::find()->where(['status' => 1, 'canonical_name' => $service])->one();
         return $this->render('services', ['services' => $services]);
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return mixed
-     */
-    public function actionContact() {
-        $contact_info = \common\models\ContactInfo::find()->where(['id' => 1])->one();
+    public function actionContactForm() {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if (isset($_POST['g-recaptcha-response']))
-                $captcha = $_POST['g-recaptcha-response'];
-            if ($captcha) {
-                $model->date = date('Y-m-d');
-                if ($model->save()) {
-                    $this->sendContactMail($model);
-                }
-            }
-            return $this->refresh();
-        } return $this->render('contact', [
-                    'model' => $model,
-                    'contact_info' => $contact_info,
-        ]);
-    }
-
-    /**
-     * This function send contact message to admin.
-     */
-    public function sendContactMail($model) {
-
-        $subject = $model->subject;
-        $to = "info@eqec.ae";
-        $message = $this->renderPartial('contact-mail', ['model' => $model,]);
-        $headers = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
-                "From: no-replay@eqec.ae";
-        mail($to, $subject, $message, $headers);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
-    public function actionAbout() {
-        $about_content = \common\models\About::find()->where(['id' => 1])->one();
-        $chairmans_message = \common\models\Chairmans::find()->where(['id' => 1])->one();
-        $partners = \common\models\Partners::find()->where(['status' => 1])->all();
-        return $this->render('about', [
-                    'about_content' => $about_content,
-                    'chairmans_message' => $chairmans_message,
-                    'partners' => $partners,
-        ]);
-    }
-
-    /**
-     * Displays careers Page.
-     *
-     * @return mixed
-     */
-    public function actionCareers() {
-        $model = new CareerJob;
-        $sectors = Sectors::find()->where(['status' => 1])->all();
-        if ($model->load(Yii::$app->request->post())) {
-            $cv = UploadedFile::getInstance($model, 'cv');
-            $model->cv = $cv->extension;
-            $model->career_id = yii::$app->EncryptDecrypt->Encrypt('decrypt', $model->career_id);
-            if ($model->validate() && $model->save()) {
-
-                if (!empty($cv)) {
-                    $this->upload($model, $cv);
-                }
-                Yii::$app->session->setFlash('success', "New Careers added Successfully");
-                $model = new CareerJob;
+        if ($_GET) {
+            $model->name = $_GET['name'];
+            $model->email = $_GET['email'];
+            $model->phone = $_GET['phone'];
+            $model->subject = $_GET['subject'];
+            $model->message = $_GET['message'];
+            $model->date = date('Y-m-d');
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Added Successfully");
+                if ($this->sendContactMail($model))
+                    return $this->redirect(Yii::$app->request->referrer);
+//               return $this->refresh(); 
             }
         }
-        return $this->render('careers', [
-                    'sectors' => $sectors,
-                    'model' => $model
-        ]);
-    }
-
-    public function Upload($model, $file) {
-        if (!is_dir(\Yii::$app->basePath . '/../uploads/cv/' . $model->id . '/')) {
-            mkdir(\Yii::$app->basePath . '/../uploads/cv/' . $model->id . '/');
-            chmod(\Yii::$app->basePath . '/../uploads/cv/' . $model->id . '/', 0777);
-        }
-        $file->saveAs(Yii::$app->basePath . '/../uploads/cv/' . $model->id . '/cv.' . $file->extension);
-        return TRUE;
     }
 
     public function actionSubscribeMail() {
@@ -212,19 +246,52 @@ class SiteController extends Controller {
                 $model = new \common\models\EmailSubscription();
                 $model->email = $email;
                 if ($model->save()) {
-                    $subject = 'Newsletter Subscription Enquiry From eqec.ae';
-                    $to = "info@eqec.ae";
+                    $subject = 'Newsletter Subscription Enquiry From emperor.ae';
+                    $to = "emperor@emperorlines.com";
                     $message = $this->renderPartial('subscribe-mail', ['email' => $email,]);
                     $headers = 'MIME-Version: 1.0' . "\r\n";
                     $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
                             "From: no-replay@eqec.ae";
                     mail($to, $subject, $message, $headers);
-                    echo json_encode(array('msg'=>'success'));
-                }else{
-                    echo json_encode(array('msg'=>'failed','error'=>'Email already used'));
+                    echo json_encode(array('msg' => 'success'));
+                    exit;
+                } else {
+                    echo json_encode(array('msg' => 'failed', 'error' => 'Email already used'));
+                    exit;
                 }
             }
         }
     }
 
+    /**
+     * This function send contact message to admin.
+     */
+    public function sendContactMail($model) {
+
+        $subject = $model->subject;
+        $to = "emperor@emperorlines.com";
+        $message = $this->renderPartial('contact-mail', ['model' => $model,]);
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
+                "From: no-replay@eqec.ae";
+        //     echo $message;exit;
+        mail($to, $subject, $message, $headers);
+    }
+
+    /**
+     * Response Mail function
+     *
+     * @return mixed
+     */
+    
+     public function sendCareerMail($model) {
+
+        $subject = 'Career Application from Website';
+        $to = "emperor@emperorlines.com";
+        $message = $this->renderPartial('career-mail', ['model' => $model,]);
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
+                "From: no-replay@eqec.ae";
+        mail($to, $subject, $message, $headers);
+    }
 }

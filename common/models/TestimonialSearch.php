@@ -19,7 +19,7 @@ class TestimonialSearch extends Testimonial
     {
         return [
             [['id', 'status', 'CB', 'UB'], 'integer'],
-            [['name', 'image', 'message', 'DOC', 'DOU'], 'safe'],
+            [['name', 'title', 'image', 'message', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
@@ -68,6 +68,7 @@ class TestimonialSearch extends Testimonial
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'image', $this->image])
             ->andFilterWhere(['like', 'message', $this->message]);
 

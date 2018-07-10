@@ -85,6 +85,7 @@ class SiteController extends Controller {
 
     public function setSession() {
         $post = AdminPosts::findOne(Yii::$app->user->identity->post_id);
+       
         if (!empty($post)) {
             Yii::$app->session['post'] = $post->attributes;
             Yii::$app->session['encrypted_user_id'] = Yii::$app->EncryptDecrypt->Encrypt('encrypt', Yii::$app->user->identity->post_id);

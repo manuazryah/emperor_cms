@@ -68,28 +68,26 @@ return [
             'rules' =>
             require(__DIR__ . '/url_rules.php'),
         ],
-        'assetManager' => [
-            'bundles' => [
-                'dosamigos\google\maps\MapAsset' => [
-                    'options' => [
-                        'key' => 'AIzaSyAn8gxT-1o2u1ouEKd1O-o9idyl62NS_Y0',
-                        'language' => 'id',
-                        'version' => '3.1.18'
-                    ]
-                ]
-            ]
-        ],
-//        'authClientCollection' => [
-//            'class' => 'yii\authclient\Collection',
-//            'clients' => [
-//                'facebook' => [
-//                    'class' => 'yii\authclient\clients\Facebook',
-//                    'authUrl' => 'https://www.facebook.com/dialog/oauth?display=popup',
-//                    'clientId' => '826690700866241',
-//                    'clientSecret' => '23da139d4e521b722db01734b9aae30f',
-//                    'attributeNames' => ['name', 'email', 'first_name', 'last_name'],
-//                ],
-//            ],
+        'assetManager' => [            
+            'bundles' => [                
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'js' => []                
+                    ],                
+                'yii\bootstrap\BootstrapAsset' => [ 
+                    'css' => [],                
+                    ],            
+                ],        
+            ],
+//        'assetManager' => [
+//            'bundles' => [
+//                'dosamigos\google\maps\MapAsset' => [
+//                    'options' => [
+//                        'key' => 'AIzaSyAn8gxT-1o2u1ouEKd1O-o9idyl62NS_Y0',
+//                        'language' => 'id',
+//                        'version' => '3.1.18'
+//                    ]
+//                ]
+//            ]
 //        ],
     ],
     'params' => $params,

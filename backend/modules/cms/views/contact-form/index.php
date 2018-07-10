@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\ContactFormSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Contact Forms';
+$this->title = 'Contact Us';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-form-index">
@@ -40,18 +40,42 @@ $this->params['breadcrumbs'][] = $this->title;
                             'columns' => [
                                 ['class' => 'yii\grid\SerialColumn'],
 //                                'id',
-                                'name',
+//                                'name',
+                                [
+                                    'attribute' => 'name',
+                                    'format' => 'raw',
+//                                    'filter' => 'title',
+                                    'value' => function ($data) {
+                                        return "<span class='name_" . $data->id . "'>" . $data->name . "</span>";
+                                    },
+                                ],
                                 [
                                     'attribute' => 'email',
                                     'format' => 'raw',
 //                                    'filter' => 'title',
                                     'value' => function ($data) {
-                                        return "<span class='title_" . $data->id . "'>" . $data->email . "</span>";
+                                        return "<span class='email_" . $data->id . "'>" . $data->email . "</span>";
                                     },
                                 ],
 //                                'email:email',
-                                'phone',
-                                'subject',
+                                [
+                                    'attribute' => 'phone',
+                                    'format' => 'raw',
+//                                    'filter' => 'title',
+                                    'value' => function ($data) {
+                                        return "<span class='phone_" . $data->id . "'>" . $data->phone . "</span>";
+                                    },
+                                ],
+//                                'phone',
+                                            [
+                                    'attribute' => 'subject',
+                                    'format' => 'raw',
+//                                    'filter' => 'title',
+                                    'value' => function ($data) {
+                                        return "<span class='subject_" . $data->id . "'>" . $data->subject . "</span>";
+                                    },
+                                ],
+//                                'subject',
                                 [
                                     'attribute' => 'message',
                                     'format' => 'raw',
@@ -93,11 +117,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"></h4>
+                <h4 class="modal-title">Contact Us</h4>
             </div>
 
             <div class="modal-body">
-
+                <table class="table">
+                    
+                    <tr>
+                        <td>Name : </td><td class="content modal-name"></td>
+                    </tr>
+                    <tr>
+                        <td>Email : </td><td class="content modal-email"></td>
+                    </tr>
+                    <tr>
+                        <td>Phone : </td><td class="content modal-phone"></td>
+                    </tr>
+                    <tr>
+                        <td>Subject : </td><td class="content modal-subject"></td>
+                    </tr>
+                    <tr>
+                        <td>Message : </td><td class="content modal-message"></td>
+                    </tr>
+                </table>
             </div>
 
             <div class="modal-footer">
@@ -109,13 +150,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <script>
     $(document).ready(function () {
         $('.feedback').click(function () {
-            $('.modal-title').html('');
-            $('.modal-body').html('');
+            $('.content').html('');
             var id = $(this).attr('id');
-            var title = $('.title_' + id).html();
-            var content = $('.message_' + id).attr('val');
-            $('.modal-title').html(title);
-            $('.modal-body').html(content);
+            var name = $('.name_' + id).html();
+            var email = $('.email_' + id).html();
+            var phone = $('.phone_' + id).html();
+            var subject = $('.subject_' + id).html();
+            var message = $('.message_' + id).attr('val');
+            $('.modal-name').html(name);
+            $('.modal-email').html(email);
+            $('.modal-phone').html(phone);
+            $('.modal-subject').html(subject);
+            $('.modal-message').html(message);
         });
         $(".filters").slideToggle();
         $("#search-option").click(function () {

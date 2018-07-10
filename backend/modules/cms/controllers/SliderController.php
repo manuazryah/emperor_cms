@@ -14,6 +14,7 @@ use yii\web\UploadedFile;
  * SliderController implements the CRUD actions for Slider model.
  */
 class SliderController extends Controller {
+
     
     
     public function beforeAction($action) {
@@ -82,8 +83,8 @@ class SliderController extends Controller {
                 if (!empty($image)) {
                     $path = Yii::$app->basePath . '/../uploads/sliders/' . $model->id . '/';
                     $size = [
-                        ['width' => 150, 'height' => 90, 'name' => 'small'],
-                        ['width' => 1920, 'height' => 1080, 'name' => 'image'],
+                        ['width' => 150, 'height' => 63, 'name' => 'small'],
+                        ['width' => 1500, 'height' => 630, 'name' => 'image'],
                     ];
                     Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
                 }
@@ -115,8 +116,8 @@ class SliderController extends Controller {
                 if (!empty($image)) {
                     $path = Yii::$app->basePath . '/../uploads/sliders/' . $model->id . '/';
                     $size = [
-                        ['width' => 150, 'height' => 90, 'name' => 'small'],
-                        ['width' => 1920, 'height' => 1080, 'name' => 'image'],
+                        ['width' => 150, 'height' => 63, 'name' => 'small'],
+                        ['width' => 1500, 'height' => 630, 'name' => 'image'],
                     ];
                     Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
                 }

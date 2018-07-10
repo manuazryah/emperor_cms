@@ -15,14 +15,23 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
         </div>
-        <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>    
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>    
+            <?= $form->field($model, 'sub_title')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>    
+            <?= $form->field($model, 'alt_tag')->textInput(['maxlength' => true]) ?>
+
+        </div>
+        <div class='col-md-6 col-sm-6 col-xs-12 left_padd'>    
             <?= $form->field($model, 'status')->dropDownList(['1' => 'Enabled', '0' => 'Disabled']) ?>
         </div>
     </div>
     <div class="row">
 
         <div class='col-md-4 col-sm-6 col-xs-12 left_padd'>    
-            <?= $form->field($model, 'image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 1920x1080 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
+            <?= $form->field($model, 'image', ['options' => ['class' => 'form-group'], 'template' => '{label}<label>Image [ File Size :( 1500x630 ) ]</label>{input}{error}'])->fileInput(['maxlength' => true])->label(FALSE) ?>
             <?php
             if ($model->isNewRecord)
                 echo "";
@@ -30,7 +39,7 @@ use yii\widgets\ActiveForm;
                 if (!empty($model->image)) {
                     ?>
 
-                    <img src="<?= Yii::$app->homeUrl ?>../uploads/sliders/<?= $model->id ?>/small.<?= $model->image; ?>" width="125" height="100"/>
+                    <img src="<?= Yii::$app->homeUrl ?>../uploads/sliders/<?= $model->id ?>/small.<?= $model->image; ?>" width="150" height="60"/>
                     <?php
                 }
             }

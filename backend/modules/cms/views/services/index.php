@@ -41,28 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             'columns' => [
                                 ['class' => 'yii\grid\SerialColumn'],
 //                                'id',
-                                'title',
+                                'name',
+                                'canonical_name',
 //                                'content:ntext',
-                                [
-                                    'attribute' => 'main_image',
-                                    'format' => 'raw',
-                                    'value' => function ($data) {
-                                        if (!empty($data->main_image))
-                                            $img = '<img width="120px" src="' . Yii::$app->homeUrl . '../uploads/services/' . $data->id . '/main_image/small.' . $data->main_image . '"/>';
-                                        return $img;
-                                    },
-                                ],
-                                [
-                                    'attribute' => 'banner_image',
-                                    'format' => 'raw',
-                                    'value' => function ($data) {
-                                        if (!empty($data->banner_image))
-                                            $img = '<img width="120px" src="' . Yii::$app->homeUrl . '../uploads/services/' . $data->id . '/banner_image/small.' . $data->banner_image . '"/>';
-                                        return $img;
-                                    },
-                                ],
-                                // 'CB',
-                                // 'UB',
+//                                'CB',
+//                                'UB',
                                 // 'DOC',
                                 // 'DOU',
                                 // 'status',

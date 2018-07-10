@@ -17,8 +17,8 @@ class ServicesSearch extends Services {
      */
     public function rules() {
         return [
-            [['id', 'CB', 'UB', 'status'], 'integer'],
-            [['title', 'content', 'main_image', 'banner_image', 'DOC', 'DOU'], 'safe'],
+            [['id', 'sort', 'CB', 'UB', 'status'], 'integer'],
+            [['name', 'content', 'DOC', 'DOU'], 'safe'],
         ];
     }
 
@@ -57,6 +57,7 @@ class ServicesSearch extends Services {
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'sort' => $this->sort,
             'CB' => $this->CB,
             'UB' => $this->UB,
             'DOC' => $this->DOC,
@@ -64,11 +65,10 @@ class ServicesSearch extends Services {
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-                ->andFilterWhere(['like', 'canonical_name', $this->canonical_name])
-                ->andFilterWhere(['like', 'content', $this->content])
-                ->andFilterWhere(['like', 'main_image', $this->main_image])
-                ->andFilterWhere(['like', 'banner_image', $this->banner_image]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+                ->andFilterWhere(['like', 'image', $this->image])
+                ->andFilterWhere(['like', 'short_content', $this->short_content])
+                ->andFilterWhere(['like', 'content', $this->content]);
 
         return $dataProvider;
     }

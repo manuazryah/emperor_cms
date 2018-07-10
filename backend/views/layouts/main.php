@@ -4,6 +4,8 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
+use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
@@ -79,52 +81,97 @@ AppAsset::register($this);
                     }
                     ?>
                     <li>
-                        <?= Html::a('<i class="fa fa-sliders"></i> <span class="title">Sliders</span>', ['/cms/slider/index'], ['class' => 'title']) ?>
-                    </li>
-                    <li>
-                        <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">About Equilibrium</span>', ['/cms/about/update', 'id' => 1], ['class' => 'title']) ?>
-                    </li>
-                    <li>
-                        <?= Html::a('<i class="fa fa-comment-o"></i> <span class="title">Chairman Message</span>', ['/chairmans/update', 'id' => 1], ['class' => 'title']) ?>
-                    </li>
-                    <li>
-                        <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
-                    </li>
-                    <li>
-                        <?= Html::a('<i class="fa fa-industry"></i> <span class="title">Sectors</span>', ['/cms/sectors/index'], ['class' => 'title']) ?>
-                    </li>
-                    <li>
                         <a href="">
-                            <i class="fa fa-wrench"></i>
-                            <span class="title">Services</span>
+                            <i class="fa fa-industry"></i>
+                            <span class="title">Home Management</span>
                         </a>
                         <ul>
                             <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
+                                <?= Html::a('<i class="fa fa-sliders"></i> <span class="title">Sliders</span>', ['/cms/slider/index'], ['class' => 'title']) ?>
                             </li>
                             <li>
-                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Business Association', ['/cms/business-association/update', 'id' => 1], ['class' => 'title']) ?>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i>Home Content', ['/cms/home-content/update', 'id' => 1], ['class' => 'title']) ?>
+                            </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i>Features', ['/cms/features/index'], ['class' => 'title']) ?>
+                            </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i>Ports', ['/cms/ports/index'], ['class' => 'title']) ?>
+                            </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i>Testimonial', ['/cms/testimonial/index'], ['class' => 'title']) ?>
+                            </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i>Top Services', ['/cms/home-page-service/index'], ['class' => 'title']) ?>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--                    <li>
+                                            <a href="">
+                                                <i class="fa fa-tags"></i>
+                                                <span class="title">Gallery</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <? Html::a('<i class="fa fa-angle-double-right"></i> Content', ['/cms/content-management/update', 'id' => 2], ['class' => 'title']) ?>
+                                                </li>
+                                                <li>
+                                                    <? Html::a('<i class="fa fa-angle-double-right"></i> Add Gallery', ['/cms/gallery/index'], ['class' => 'title']) ?>
+                                                </li>
+                                            </ul>
+                                        </li>-->
+                    <li>
+                        <?= Html::a('<i class="fa fa-hotel"></i> <span class="title">About</span>', ['/cms/about/update', 'id' => 1], ['class' => 'title']) ?>
+                    </li>
+                    <li>
+                        <?= Html::a('<i class="fa fa-photo"></i> <span class="title">Gallery</span>', ['/cms/gallery/index'], ['class' => 'title']) ?>
+                    </li>
+                    <li>
+                        <?= Html::a('<i class="fa fa-download"></i> <span class="title">Downloads</span>', ['/cms/download/index'], ['class' => 'title']) ?>
+                    </li>
+                    <li>
+                        <?= Html::a('<i class="fa fa-ship"></i> <span class="title">Port position</span>', ['/cms/port-position/index'], ['class' => 'title']) ?>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-address-card"></i>
+                            <span class="title">Contact</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Contact', ['/cms/contact/update', 'id' => 1], ['class' => 'title']) ?>
+                            </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Adresses', ['/cms/contact-address/index'], ['class' => 'title']) ?>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa fa-server"></i> <span class="title">Services</span>', ['/cms/services/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-suitcase"></i> <span class="title">Applied Jobs</span>', ['/career-job/index'], ['class' => 'title']) ?>
-                    </li>
-                    <li>
-                        <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/update', 'id' => 1], ['class' => 'title']) ?>
+                        <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">Useful links</span>', ['/cms/useful-links/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
                         <?= Html::a('<i class="fa fa-envelope"></i> <span class="title">Contact Us</span>', ['/cms/contact-form/index'], ['class' => 'title']) ?>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-tags"></i> <span class="title">Email Subscription</span>', ['/cms/email-subscription'], ['class' => 'title']) ?>
+                        <a href="">
+                            <i class="fa fa-graduation-cap"></i>
+                            <span class="title">Career</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Career Content', ['/cms/career-content/update', 'id' => 1], ['class' => 'title']) ?>
+                            </li>
+                            <li>
+                                <?= Html::a('<i class="fa fa-angle-double-right"></i> Career Application', ['/cms/career-applications/index'], ['class' => 'title']) ?>
+                            </li>
+                        </ul>
                     </li>
-                    <!--                    <li>
-                    <?php // Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
-                                        </li>-->
+                    <li>
+                        <?= Html::a('<i class="fa fa-suitcase"></i> <span class="title">Footer Content</span>', ['/cms/footer-content/update', 'id' => 1], ['class' => 'title']) ?>
+                    </li>
                 </ul>
 
                 <!-- notifications and other links -->
@@ -211,52 +258,84 @@ AppAsset::register($this);
                         }
                         ?>
                         <li>
-                            <?= Html::a('<i class="fa fa-sliders"></i> <span class="title">Sliders</span>', ['/cms/slider/index'], ['class' => 'title']) ?>
-                        </li>
-                        <li>
-                            <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">About Equilibrium</span>', ['/cms/about/update', 'id' => 1], ['class' => 'title']) ?>
-                        </li>
-                        <li>
-                            <?= Html::a('<i class="fa fa-comment-o"></i> <span class="title">Chairman Message</span>', ['/chairmans/update', 'id' => 1], ['class' => 'title']) ?>
-                        </li>
-                        <li>
-                            <?= Html::a('<i class="fa fa-users"></i> <span class="title">Our Partners</span>', ['/cms/partners/index'], ['class' => 'title']) ?>
-                        </li>
-                        <li>
-                            <?= Html::a('<i class="fa fa-industry"></i> <span class="title">Sectors</span>', ['/cms/sectors/index'], ['class' => 'title']) ?>
-                        </li>
-                        <li>
                             <a href="">
-                                <i class="fa fa-wrench"></i>
-                                <span class="title">Services</span>
+                                <i class="fa fa-industry"></i>
+                                <span class="title">Home Management</span>
                             </a>
                             <ul>
                                 <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Services', ['/cms/services/index'], ['class' => 'title']) ?>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Sliders', ['/cms/slider/index'], ['class' => 'title']) ?>
                                 </li>
                                 <li>
-                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Business Association', ['/cms/business-association/update', 'id' => 1], ['class' => 'title']) ?>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i>Home Content', ['/cms/home-content/update', 'id' => 1], ['class' => 'title']) ?>
+                                </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i>Features', ['/cms/features/index'], ['class' => 'title']) ?>
+                                </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i>Ports', ['/cms/ports/index'], ['class' => 'title']) ?>
+                                </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i>Testimonial', ['/cms/testimonial/index'], ['class' => 'title']) ?>
+                                </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i>Top Services', ['/cms/home-page-service/index'], ['class' => 'title']) ?>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-tasks"></i> <span class="title">Careers</span>', ['/careers/index'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-hotel"></i> <span class="title">About</span>', ['/cms/about/update', 'id' => 1], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-suitcase"></i> <span class="title">Applied Jobs</span>', ['/career-job/index'], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-photo"></i> <span class="title">Gallery</span>', ['/cms/gallery/index'], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-address-card"></i> <span class="title">Contact Info</span>', ['/cms/contact-info/update', 'id' => 1], ['class' => 'title']) ?>
+                            <?= Html::a('<i class="fa fa-download"></i> <span class="title">Downloads</span>', ['/cms/download/index'], ['class' => 'title']) ?>
+                        </li>
+                        <li>
+                            <?= Html::a('<i class="fa fa-ship"></i> <span class="title">Port position</span>', ['/cms/port-position/index'], ['class' => 'title']) ?>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-address-card"></i>
+                                <span class="title">Contact</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Contact', ['/cms/contact/update', 'id' => 1], ['class' => 'title']) ?>
+                                </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Adresses', ['/cms/contact-address/index'], ['class' => 'title']) ?>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <?= Html::a('<i class="fa fa-server"></i> <span class="title">Services</span>', ['/cms/services/index'], ['class' => 'title']) ?>
+                        </li>
+                        <li>
+                            <?= Html::a('<i class="fa fa-sitemap"></i> <span class="title">Useful links</span>', ['/cms/useful-links/index'], ['class' => 'title']) ?>
                         </li>
                         <li>
                             <?= Html::a('<i class="fa fa-envelope"></i> <span class="title">Contact Us</span>', ['/cms/contact-form/index'], ['class' => 'title']) ?>
                         </li>
                         <li>
-                            <?= Html::a('<i class="fa fa-tags"></i> <span class="title">Email Subscription</span>', ['/cms/email-subscription'], ['class' => 'title']) ?>
+                            <a href="">
+                                <i class="fa fa-graduation-cap"></i>
+                                <span class="title">Career</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Career Content', ['/cms/career-content/update', 'id' => 1], ['class' => 'title']) ?>
+                                </li>
+                                <li>
+                                    <?= Html::a('<i class="fa fa-angle-double-right"></i> Career Application', ['/cms/career-applications/index'], ['class' => 'title']) ?>
+                                </li>
+                            </ul>
                         </li>
-                        <!--                        <li>
-                        <?php // Html::a('<i class="fa fa-tags"></i> <span class="title">Meta Tags</span>', ['/cms/meta-tags/index'], ['class' => 'title']) ?>
-                                                </li>-->
+                        <li>
+                            <?= Html::a('<i class="fa fa-suitcase"></i> <span class="title">Footer Content</span>', ['/cms/footer-content/update', 'id' => 1], ['class' => 'title']) ?>
+                        </li>
+
                     </ul>
 
                 </div>
@@ -264,6 +343,7 @@ AppAsset::register($this);
             </div>
 
             <div class="main-content">
+                <?= Alert::widget() ?>
                 <?= $content; ?>
 
                 <footer class="main-footer sticky footer-type-1">
@@ -272,7 +352,7 @@ AppAsset::register($this);
 
                         <!-- Add your copyright text here -->
                         <div class="footer-text">
-                            <strong>© 2018 Equilibrium. All Rights Reserve</strong>
+                            <strong>© 2018 Emperor. All Rights Reserved</strong>
                         </div>
 
 

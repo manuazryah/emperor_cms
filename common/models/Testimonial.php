@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ * @property string $title
  * @property string $image
  * @property string $message
  * @property int $status
@@ -33,12 +34,14 @@ class Testimonial extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['title', 'name'], 'required'],
             [['message'], 'string'],
-            [['name','message'], 'required'],
             [['status', 'CB', 'UB'], 'integer'],
-            [['DOC', 'DOU', 'image'], 'safe'],
+            [['DOC', 'DOU'], 'safe'],
             [['name'], 'string', 'max' => 100],
-            [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
+            [['title'], 'string', 'max' => 200],
+            [['image'], 'required', 'on' => 'create'],
+            [['image'], 'file', 'extensions' => 'jpg, gif, png,jpeg'],
         ];
     }
 
@@ -50,6 +53,7 @@ class Testimonial extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'title' => 'Title',
             'image' => 'Image',
             'message' => 'Message',
             'status' => 'Status',

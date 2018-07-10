@@ -8,15 +8,13 @@ use common\models\ServicesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\models\UploadForm;
 use yii\web\UploadedFile;
 
 /**
  * ServicesController implements the CRUD actions for Services model.
  */
 class ServicesController extends Controller {
-    
-    
+
     public function beforeAction($action) {
         if (!parent::beforeAction($action)) {
             return false;
@@ -74,51 +72,26 @@ class ServicesController extends Controller {
      */
     public function actionCreate() {
         $model = new Services();
-
         $model->setScenario('create');
-        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
-            $model->canonical_name = Yii::$app->request->post()['Services']['canonical_name'];
-            $main_image = UploadedFile::getInstance($model, 'main_image');
-            $banner_image = UploadedFile::getInstance($model, 'banner_image');
-            $model->main_image = $main_image->extension;
-            $model->banner_image = $banner_image->extension;
-            if ($model->validate() && $model->save()) {
 
-                if (!empty($main_image)) {
-                    $name = 'main_image';
-                    if ($this->upload($model, $main_image, $name)) {
-                        $model->upload($main_image, $model, $name);
-                    }
-                }
-                if (!empty($banner_image)) {
-                    $name = 'banner_image';
-                    if ($this->upload($model, $banner_image, $name)) {
-                        $model->upload($banner_image, $model, $name);
-                    }
+        if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
+            $image = UploadedFile::getInstance($model, 'image');
+            $model->image = $image->extension;
+            if ($model->validate() && $model->save()) {
+                if (!empty($image)) {
+                    $path = Yii::$app->basePath . '/../uploads/services/' . $model->id . '/';
+                    $size = [
+                        ['width' => 110, 'height' => 60, 'name' => 'small'],
+                        ['width' => 768, 'height' => 410, 'name' => 'image'],
+                    ];
+                    Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
                 }
                 Yii::$app->session->setFlash('success', "New Services added Successfully");
-            } else {
-//                var_dump($model->validat());exit;
+                return $this->redirect(['create']);
             }
-            return $this->redirect(['index']);
-        } else {
-            return $this->render('create', [
-                        'model' => $model,
-            ]);
-        }
-    }
-
-    public function Upload($model, $file, $name) {
-        if (!is_dir(\Yii::$app->basePath . '/../uploads/services/' . $model->id)) {
-            mkdir(\Yii::$app->basePath . '/../uploads/services/' . $model->id);
-            chmod(\Yii::$app->basePath . '/../uploads/services/' . $model->id, 0777);
-        }
-        if (!is_dir(\Yii::$app->basePath . '/../uploads/services/' . $model->id . '/' . $name . '/')) {
-            mkdir(\Yii::$app->basePath . '/../uploads/services/' . $model->id . '/' . $name . '/');
-            chmod(\Yii::$app->basePath . '/../uploads/services/' . $model->id . '/' . $name . '/', 0777);
-        }
-        $file->saveAs(Yii::$app->basePath . '/../uploads/services/' . $model->id . '/' . $name . '/image.' . $file->extension);
-        return TRUE;
+        }return $this->render('create', [
+                    'model' => $model,
+        ]);
     }
 
     /**
@@ -127,37 +100,33 @@ class ServicesController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id) {
+     public function actionUpdate($id) {
         $model = $this->findModel($id);
+        $image_ = $model->image;
 
         if ($model->load(Yii::$app->request->post()) && Yii::$app->SetValues->Attributes($model)) {
-            $model->canonical_name = Yii::$app->request->post()['Services']['canonical_name'];
-            $main_image = UploadedFile::getInstance($model, 'main_image');
-            $banner_image = UploadedFile::getInstance($model, 'banner_image');
-            $model->main_image = !empty($main_image) ? $main_image->extension : $model->main_image;
-            $model->banner_image = !empty($banner_image) ? $banner_image->extension : $model->banner_image;
+            $image = UploadedFile::getInstance($model, 'image');
+            if (!empty($image))
+                $model->image = $image->extension;
+            else
+                $model->image = $image_;
             if ($model->validate() && $model->save()) {
-
-                if (!empty($main_image)) {
-                    $name = 'main_image';
-                    if ($this->upload($model, $main_image, $name)) {
-                        $model->upload($main_image, $model, $name);
-                    }
+                if (!empty($image)) {
+                    $path = Yii::$app->basePath . '/../uploads/services/' . $model->id . '/';
+                    $size = [
+                        ['width' => 110, 'height' => 60, 'name' => 'small'],
+                        ['width' => 768, 'height' => 410, 'name' => 'image'],
+                    ];
+                    Yii::$app->UploadFile->UploadFile($model, $image, $path, $size);
                 }
-                if (!empty($banner_image)) {
-                    $name = 'banner_image';
-                    if ($this->upload($model, $banner_image, $name)) {
-                        $model->upload($banner_image, $model, $name);
-                    }
-                }
-                Yii::$app->session->setFlash('success', "Services updated Successfully");
-            } 
+            }
+            Yii::$app->session->setFlash('success', "Services Updated Successfully");
             return $this->redirect(['index']);
-        } else {
-            return $this->render('update', [
-                        'model' => $model,
-            ]);
         }
+
+        return $this->render('update', [
+                    'model' => $model,
+        ]);
     }
 
     /**

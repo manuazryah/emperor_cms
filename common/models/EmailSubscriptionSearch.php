@@ -41,7 +41,7 @@ class EmailSubscriptionSearch extends EmailSubscription
      */
     public function search($params)
     {
-        $query = EmailSubscription::find();
+        $query = EmailSubscription::find()->orderBy(['id' => SORT_DESC]);
 
         // add conditions that should always apply here
 

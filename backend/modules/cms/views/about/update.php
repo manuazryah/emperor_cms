@@ -5,16 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\About */
 
-$this->title = 'Update About Content';
+$this->title = 'Update About: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Abouts', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<style>
-    textarea.form-control{
-        min-height: 220px;
-    }
-</style>
 <div class="row">
         <div class="col-md-12">
 
